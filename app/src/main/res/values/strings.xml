@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">share Blood</string>
+    <string name="ambulance">ambulance</string>
+    <string name="search">search</string>
+    <string name="airport_shuttle">airport_shuttle</string>
+    <string name="embulance">embulance</string>
+    <string name="searche">search</string>
+</resources>
