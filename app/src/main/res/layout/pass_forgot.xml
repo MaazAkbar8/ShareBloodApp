@@ -24,13 +24,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/levendr_fill"
-            android:drawableStart="@drawable/baseline_lock_reset_24"
             android:drawablePadding="8dp"
             android:padding="10dp"
             android:text="forgot password "
             android:textColor="@color/white"
             android:textSize="17sp"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:drawableStartCompat="@drawable/baseline_lock_reset_24" />
 
         <TextView
             android:id="@+id/desc"

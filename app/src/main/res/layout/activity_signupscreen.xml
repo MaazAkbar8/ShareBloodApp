@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+
     android:background="#A86D6D"
     tools:context=".signupscreen"
     android:orientation="vertical">
@@ -31,14 +31,14 @@
             android:textStyle="bold"
             android:textColor="#8a0303"/>
 
+
         <LinearLayout
-            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="33sp"
-            android:padding="25dp">
-          <!-- name -->
+        android:orientation="vertical"
+            android:layout_marginTop="50sp"
+            >
+            <!-- Name-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/Name"
                  android:layout_width="match_parent"
@@ -49,7 +49,6 @@
                 android:id="@+id/et_name"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
-                android:background="@drawable/boarder_m"
                 android:drawableStart="@drawable/baseline_person_24"
                 android:drawablePadding="7dp"
                 android:padding="4dp"
@@ -58,35 +57,36 @@
                  android:inputType="textPersonName"
                  android:textColor="#0C0C0C"
                  android:textColorHint="#E14A4747"
-                 android:textSize="23dp" />
+                 android:textSize="22dp" />
             </com.google.android.material.textfield.TextInputLayout>
-
-
-
+            
           <!-- city -->
+
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/et_city"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17sp"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/city"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-            android:layout_marginTop="50dp"
-                android:drawablePadding="7dp"
-                android:padding="10dp"
-                android:layout_marginStart="10dp"
-                android:background="@drawable/boarder_m"
-                    android:hint=" City:"
-                android:drawableStart="@drawable/baseline_holiday_village_24"
-                    android:inputType="text"
-                    android:textColor="#0C0C0C"
-                    android:textColorHint="#E14A4747"
-                    android:textSize="23sp"
-                    tools:ignore="MissingConstraints" />
+                android:hint="city"
+                android:layout_marginTop="17dp"
+
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                <AutoCompleteTextView
+                    android:id="@+id/dropdownfield"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:textColor="@color/black"
+                    android:padding="7dp"
+                    android:drawableStart="@drawable/baseline_holiday_village_24"
+                    android:drawablePadding="7dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="22sp"
+                    android:inputType="none"/>
+
+
+
+
             </com.google.android.material.textfield.TextInputLayout>
+
 
 
            <!-- mobile no-->
@@ -101,17 +101,18 @@
                     android:id="@+id/contact"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:background="@drawable/boarder_m"
+
                     android:drawableStart="@drawable/baseline_phone_24"
                     android:drawablePadding="7dp"
                     android:padding="4dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
                     android:hint=" Mobile number "
+                    android:text="034"
                     android:inputType="number"
                     android:textColor="#0C0C0C"
                     android:textColorHint="#E14A4747"
-                    android:textSize="23dp"
+                    android:textSize="22dp"
                     tools:ignore="MissingConstraints" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -119,30 +120,25 @@
 
             <!--bloodgroup-->
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/bloodgroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="17sp"
+                android:hint="BloodType"
+                android:layout_marginTop="17dp"
 
-                app:errorEnabled="true"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/bloodG"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:layout_marginTop="20dp"
-                android:drawableStart="@drawable/baseline_bloodtype_24"
-                android:drawablePadding="7dp"
-                android:padding="4dp"
-                android:layout_marginStart="10dp"
-                android:hint=" Blood Group:"
-                android:background="@drawable/boarder_m"
-                android:inputType="textPersonName"
-                android:textColor="#0C0C0C"
-                android:textColorHint="#E14A4747"
-                android:textSize="23dp"
-                tools:ignore="MissingConstraints"
-                />
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+                <AutoCompleteTextView
+                    android:id="@+id/dropdownfield_bloodg"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:textColor="@color/black"
+                    android:padding="7dp"
+                  android:drawableStart="@drawable/baseline_bloodtype_24"
+                    android:drawablePadding="7dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginStart="10dp"
+                    android:textSize="22sp"
+                    android:inputType="none"/>
+
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -152,21 +148,25 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:errorEnabled="true"
+                android:layout_marginTop="17sp"
+
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
-                    android:background="@drawable/boarder_m"
                     android:drawableStart="@drawable/baseline_email_24"
-                    android:drawablePadding="8dp"
+                    android:drawablePadding="20dp"
                     android:padding="4dp"
+
                     android:hint=" Email"
-                    android:layout_marginStart="10dp"
+                    android:text="gmail.com"
+                    android:layout_marginStart="7dp"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textColorHint="@color/black" />
+              
             </com.google.android.material.textfield.TextInputLayout>
 
           <!-- password-->
@@ -185,12 +185,14 @@
                     android:drawablePadding="7dp"
                     android:padding="4dp"
                     android:hint="Password"
+                    android:maxLength="8"
+
                     android:textColor="#0C0C0C"
                     android:textColorHint="#E19C8181"
                     android:textSize="23dp"
                     android:layout_marginStart="10dp"
                     android:inputType="textPassword"
-                    android:background="@drawable/boarder_m"/>
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 
@@ -216,7 +218,7 @@
                     android:textColorHint="#E12C2A2A"
                     android:textSize="23dp"
                     android:inputType="textPassword"
-                    android:background="@drawable/boarder_m"/>
+                    />
             </com.google.android.material.textfield.TextInputLayout>
 
 

@@ -21,14 +21,15 @@
 
             <TextView
                 android:id="@+id/Name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="10sp"
                 android:layout_marginTop="9sp"
                 android:layout_marginEnd="10sp"
                 android:text="Name:"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="15sp"
+                android:textSize="22sp"/>
 
             <TextView
                 android:id="@+id/City"
@@ -37,9 +38,11 @@
                 android:layout_below="@+id/Name"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
+                android:drawableStart="@drawable/baseline_holiday_village_24"
                 android:text="City:"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:drawablePadding="15dp"
+                android:textSize="22sp"
+                 />
 
             <TextView
                 android:id="@+id/BloodGroup"
@@ -47,10 +50,11 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/City"
                 android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/baseline_bloodtype_24"
+                android:drawablePadding="15dp"
                 android:layout_marginTop="8dp"
                 android:text="BloodGroup:"
-                android:textSize="24sp"
-                android:textStyle="bold" />
+                android:textSize="22sp"/>
 
             <TextView
                 android:id="@+id/age"

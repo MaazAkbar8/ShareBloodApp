@@ -4,6 +4,8 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.method.PasswordTransformationMethod
+import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
 import com.example.shareblood.databinding.ActivityLoginScreenBinding
@@ -27,12 +29,44 @@ class signupscreen : AppCompatActivity() {
        // intailization
         auth = Firebase.auth
 
-       // signup eventhandling
+        //**********************************************************************************
+            // Email dropdownlist work
+
+             val list= listOf("Timergara","Balambat" ,"Lal_Qilla" ,"Jandol" ,"Adenzai" ,"Samar Bagh", "Chakdara","Munda","Maidan","Talash")
+             val adapter=ArrayAdapter(this,R.layout.list_item_city,list)
+             binding.dropdownfield.setAdapter(adapter)
+
+
+
+        //**********************************************************************************
+
+
+             // Bloodgroup dropdownlist works
+
+                 val m= listOf(" (A+)", " (A-)", "(B+) ","(B-) "," (AB+)", "(AB-) "," (O+) ","(O-)")
+
+                 val Adapter=ArrayAdapter(this,R.layout.list_item_bloodtype,m)
+                   binding.dropdownfieldBloodg.setAdapter(Adapter)
+
+  //*******************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+        // signup eventhandling
         binding.tvsignup.setOnClickListener {
             val name = binding.etName.getText().toString()
-            val city = binding.city.getText().toString()
+            val dropdownfield= binding.dropdownfield.getText().toString()
             val contact = binding.contact.getText().toString()
-            val blood = binding.bloodG.getText().toString()
+            val blood = binding.dropdownfieldBloodg.getText().toString()
             val Email = binding.etEmail.getText().toString()
             val pass = binding.password.getText().toString()
             val re_pass = binding.rePass.getText().toString()
@@ -40,13 +74,14 @@ class signupscreen : AppCompatActivity() {
             if (contact.isEmpty()) {
                 binding.contact.setError("fields not be empty")
             } else if (blood.isEmpty()) {
-                binding.bloodgroup.setError("fields not be empty")
+                binding.dropdownfieldBloodg.setError("fields not be empty")
             } else if (Email.isEmpty()) {
                 binding.etEmail.setError("filed not be empty")
             }else if (pass.isEmpty()) {
                 binding.password.setError("field not be empty")
-            }else if (re_pass.isEmpty()){
+            }else if (re_pass.isEmpty()) {
                 binding.rePass.setError("field not be empty")
+
             }else {
                 // Data stored in firebase Authentication which data email and pass
                 auth.createUserWithEmailAndPassword(Email, pass).addOnCompleteListener {
@@ -60,6 +95,12 @@ class signupscreen : AppCompatActivity() {
                 }
 
             }
+        }
+        //*****************************************************************************************************************
+           // contact work
+        binding.contact.setOnClickListener {
+
+            binding.contact.setText("034")
         }
 
     }
