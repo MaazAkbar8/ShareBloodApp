@@ -41,47 +41,63 @@ app:cardElevation="2dp">
         <androidx.appcompat.widget.AppCompatEditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/et_choose_city"
+            android:id="@+id/et_name"
             android:hint=" Enter your Name"
+            android:textSize="20sp"
             android:textColorHint="@color/black"
             android:textColor="@color/black"
             android:inputType="textPersonName"/>
     </com.google.android.material.textfield.TextInputLayout>
-
+<!--city-->
     <com.google.android.material.textfield.TextInputLayout
+
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginEnd="10sp"
-        android:layout_margin="12dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <androidx.appcompat.widget.AppCompatEditText
+        android:hint="city"
+        android:layout_marginTop="1dp"
+
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/et_city"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/cityName"
-            android:hint=" Enter city Name"
-            android:layout_marginTop="6sp"
-            android:textColorHint="@color/black"
+            android:layout_height="60dp"
             android:textColor="@color/black"
-            android:inputType="textPersonName"/>
+            android:padding="7dp"
+            android:drawableStart="@drawable/baseline_holiday_village_24"
+            android:drawablePadding="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:textSize="20sp"
+            android:inputType="none"/>
+
+
+
+
     </com.google.android.material.textfield.TextInputLayout>
 
+    <!--bloodgroup-->
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10sp"
-        android:layout_marginEnd="10sp"
-        android:layout_margin="12dp"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/et_bloodtype"
+        android:hint="BloodType"
+        android:layout_marginTop="11dp"
 
-            android:hint=" Enter your BloodType"
-            android:textColorHint="@color/black"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu">
+        <AutoCompleteTextView
+            android:id="@+id/et_BloodGroup"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
             android:textColor="@color/black"
-            android:inputType="textPersonName"/>
+            android:padding="7dp"
+            android:drawableStart="@drawable/baseline_bloodtype_24"
+            android:drawablePadding="7dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="11dp"
+            android:layout_marginEnd="11dp"
+            android:textSize="20sp"
+            android:inputType="none"/>
+
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -96,6 +112,7 @@ app:cardElevation="2dp">
             android:layout_height="wrap_content"
             android:id="@+id/et_age"
             android:hint=" Enter your Age"
+            android:textSize="20sp"
             android:textColorHint="@color/black"
             android:textColor="@color/black"
             android:inputType="textPersonName"/>

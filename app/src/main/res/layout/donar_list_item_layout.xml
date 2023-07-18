@@ -45,7 +45,7 @@
                  />
 
             <TextView
-                android:id="@+id/BloodGroup"
+                android:id="@+id/bloodGroup"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/City"
@@ -53,14 +53,14 @@
                 android:drawableStart="@drawable/baseline_bloodtype_24"
                 android:drawablePadding="15dp"
                 android:layout_marginTop="8dp"
-                android:text="BloodGroup:"
+                android:text="BloodType:"
                 android:textSize="22sp"/>
 
             <TextView
                 android:id="@+id/age"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/BloodGroup"
+                android:layout_below="@+id/bloodGroup"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:padding="8dp"
@@ -83,18 +83,10 @@
                 android:layout_height="30dp"
                 android:layout_below="@+id/black_line"
                 android:layout_alignParentEnd="true"
+                android:layout_marginEnd="20sp"
+                android:layout_marginBottom="7sp"
                 android:src="@drawable/baseline_phone_24"/>
 
-            <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/share_btn"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_below="@+id/black_line"
-                android:layout_alignParentEnd="true"
-                android:layout_marginEnd="40dp"
-                android:layout_marginBottom="8dp"
-                android:layout_toStartOf="@+id/call_btn"
-                android:src="@drawable/baseline_share_24" />
 
 
         </RelativeLayout>

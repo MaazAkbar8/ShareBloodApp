@@ -36,15 +36,16 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:title="Shareblood"
-        app:menu="@menu/app_bar_menu"
+       app:menu="@menu/app_bar_menu"
         android:background="#8a0303"
         app:titleTextColor="@color/white"/>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RCV1"
+        android:id="@+id/Rcv1"
         android:layout_below="@id/lv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+
         android:layout_above="@id/makedonar"/>
 
     <TextView
@@ -53,6 +54,7 @@
         android:layout_height="wrap_content"
         android:text="Make Donar"
         android:textStyle="bold"
+
         android:textSize="16sp"
         android:textColor="@color/white"
         android:padding="16dp"

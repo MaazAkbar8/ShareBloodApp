@@ -21,7 +21,7 @@ class signupscreen : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
     lateinit var binding: ActivitySignupscreenBinding
-    @SuppressLint("MissingInflatedId")
+    @SuppressLint("MissingInflatedId", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivitySignupscreenBinding.inflate(layoutInflater)
