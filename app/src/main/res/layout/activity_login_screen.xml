@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity=""
-    android:background="#A86D6D"
+    android:background="@drawable/view_bg_shape"
     android:orientation="vertical"
     tools:context=".LoginScreen">
 
@@ -35,7 +35,6 @@
             android:layout_height="390dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@color/teal_200"
             app:cardCornerRadius="10sp"
             app:cardElevation="10dp"
             android:layout_marginTop="150sp">
@@ -57,22 +56,19 @@
                     android:id="@+id/Email"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-
-                    >
-
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="70dp"
-                        android:background="@drawable/boarder_m"
+                        android:background="@drawable/view_bg_shape"
                         android:drawableStart="@drawable/baseline_email_24"
                         android:drawablePadding="8dp"
                         android:padding="10dp"
                         android:hint=" Email"
-                          android:layout_marginStart="5dp"
-                        android:layout_marginEnd="5dp"
+                          android:layout_marginStart="10dp"
+                        android:layout_marginEnd="10dp"
                        android:layout_marginTop="20sp"
                       android:inputType="textEmailAddress"
                         android:textColor="@color/black"
@@ -93,14 +89,14 @@
                     android:id="@+id/password"
                     android:layout_width="match_parent"
                     android:layout_height="70dp"
-                    android:background="@drawable/boarder_m"
+                    android:background="@drawable/view_bg_shape"
                     android:hint="Password"
                      android:padding="10dp"
                     android:drawableStart="@drawable/baseline_lock_24"
                     android:drawablePadding="8dp"
                     android:inputType="textPassword"
-                    android:layout_marginStart="5dp"
-                    android:layout_marginEnd="5dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginTop="2dp"
                     android:textColor="#0C0C0C"
                     android:textColorHint="#E19C8181" />
@@ -112,12 +108,12 @@
                     android:layout_height="45dp"
                     android:layout_gravity="center"
                     android:layout_marginTop="13sp"
-                    android:background="@drawable/btn_baground"
+                    android:background="@drawable/view_bg_shape"
                     android:padding="5sp"
                     app:cornerRadius="20sp"
                     android:paddingStart="85sp"
                     android:text="login"
-                    android:textColor="@color/white"
+                    android:textColor="@color/black"
                     android:textSize="24sp" />
                 <!-- forgetpass-->
 

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto" >
 
     <item
         android:id="@+id/embulance"
         android:title="@string/embulance"
         android:icon="@drawable/ic_embulance"
-        app:showAsAction="ifRoom"/>
+        app:showAsAction="always"
+        />
 
-    <item
-        android:id="@+id/searching"
-        android:title="@string/search"
-        android:icon="@drawable/ic_search"
-        app:showAsAction="always"/>
+
 
 
 </menu>

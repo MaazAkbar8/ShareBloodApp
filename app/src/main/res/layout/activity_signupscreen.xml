@@ -5,27 +5,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="#A86D6D"
+    android:background="@drawable/viewgroup_bg"
     tools:context=".signupscreen"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
+        android:layout_marginTop="30dp"
         android:layout_width="match_parent"
-        android:layout_height="850dp"
+        android:layout_height="825dp"
         android:layout_marginStart="10dp"
         android:layout_marginEnd="10dp"
-
-        android:background="#00BCD4"
         app:cardCornerRadius="30sp"
         app:cardElevation="10dp">
+
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="170sp"
             android:text="Signup"
-
             android:layout_marginTop="8dp"
             android:textSize="24sp"
             android:textStyle="bold"
@@ -36,8 +35,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
         android:orientation="vertical"
-            android:layout_marginTop="50sp"
+
+            android:layout_marginTop="40sp"
             >
+
+
             <!-- Name-->
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/Name"
@@ -52,7 +54,9 @@
                 android:drawableStart="@drawable/baseline_person_24"
                 android:drawablePadding="7dp"
                 android:padding="4dp"
+                android:background="@drawable/view_bg_shape"
                  android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                  android:hint=" Name:"
                  android:inputType="textPersonName"
                  android:textColor="#0C0C0C"
@@ -75,10 +79,12 @@
                     android:layout_height="60dp"
                     android:textColor="@color/black"
                     android:padding="7dp"
+                    android:background="@drawable/view_bg_shape"
                     android:drawableStart="@drawable/baseline_holiday_village_24"
                     android:drawablePadding="7dp"
                     android:layout_marginTop="20dp"
                     android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
                     android:textSize="20sp"
                     android:inputType="none"/>
 
@@ -109,8 +115,10 @@
                     android:layout_marginStart="10dp"
                     android:hint=" Mobile number "
                     android:text="034"
+                    android:background="@drawable/view_bg_shape"
                     android:inputType="number"
                     android:textColor="#0C0C0C"
+                    android:layout_marginEnd="10dp"
                     android:textColorHint="#E14A4747"
                     android:textSize="20dp"
                     tools:ignore="MissingConstraints" />
@@ -135,6 +143,8 @@
                   android:drawableStart="@drawable/baseline_bloodtype_24"
                     android:drawablePadding="7dp"
                     android:layout_marginTop="20dp"
+                    android:background="@drawable/view_bg_shape"
+                    android:layout_marginEnd="10dp"
                     android:layout_marginStart="10dp"
                     android:textSize="20sp"
                     android:inputType="none"/>
@@ -162,7 +172,9 @@
 
                     android:hint=" Email"
                     android:text="gmail.com"
-                    android:layout_marginStart="7dp"
+                    android:background="@drawable/view_bg_shape"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginStart="10dp"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/black"
                     android:textSize="20sp"
@@ -187,6 +199,8 @@
                     android:padding="4dp"
                     android:hint="Password"
                     android:maxLength="8"
+                    android:background="@drawable/view_bg_shape"
+                    android:layout_marginEnd="10dp"
 
                     android:textColor="#0C0C0C"
                     android:textColorHint="#E19C8181"
@@ -212,7 +226,8 @@
                     android:drawableStart="@drawable/baseline_password_24"
                     android:drawablePadding="7dp"
                     android:padding="4dp"
-
+                    android:background="@drawable/view_bg_shape"
+                    android:layout_marginEnd="10dp"
                     android:hint="Re_password"
                     android:layout_marginStart="10dp"
                     android:textColor="#0C0C0C"
@@ -242,12 +257,12 @@
                 android:layout_width="229dp"
                 android:layout_height="45dp"
                 android:layout_gravity="center"
-                android:background="@drawable/btn_baground"
+                android:background="@drawable/view_bg_shape"
                 android:paddingStart="70sp"
                 android:paddingTop="5dp"
                 android:text="Register"
 
-                android:textColor="@color/white"
+                android:textColor="@color/black"
                 android:textSize="24dp" />
 
 

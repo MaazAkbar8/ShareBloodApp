@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="#A86D6D"
+
     android:layout_height="wrap_content">
     
     
@@ -12,12 +12,15 @@
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
         app:cardCornerRadius="15dp"
+
         app:cardBackgroundColor="@color/white"
         app:cardElevation="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+
+           >
 
             <TextView
                 android:id="@+id/Name"
@@ -27,6 +30,8 @@
                 android:layout_marginTop="9sp"
                 android:layout_marginEnd="10sp"
                 android:text="Name:"
+                android:padding="5dp"
+                android:background="@drawable/view_bg_shape"
                 android:drawableStart="@drawable/baseline_person_24"
                 android:drawablePadding="15sp"
                 android:textSize="22sp"/>
@@ -38,6 +43,9 @@
                 android:layout_below="@+id/Name"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="10dp"
+                android:padding="5dp"
+                android:background="@drawable/view_bg_shape"
                 android:drawableStart="@drawable/baseline_holiday_village_24"
                 android:text="City:"
                 android:drawablePadding="15dp"
@@ -50,9 +58,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/City"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
                 android:drawableStart="@drawable/baseline_bloodtype_24"
                 android:drawablePadding="15dp"
                 android:layout_marginTop="8dp"
+                android:padding="5dp"
+                android:background="@drawable/view_bg_shape"
                 android:text="BloodType:"
                 android:textSize="22sp"/>
 
@@ -63,8 +74,10 @@
                 android:layout_below="@+id/bloodGroup"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
-                android:padding="8dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/view_bg_shape"
                 android:text="Age:"
+                android:padding="5dp"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 

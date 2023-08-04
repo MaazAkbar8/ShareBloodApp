@@ -14,7 +14,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.constraintlayout.widget.ConstraintLayout
-import com.example.shareblood.databinding.ActivityFindDoarBinding
 import com.example.shareblood.databinding.ActivityLoginScreenBinding
 import com.example.shareblood.databinding.ActivityMainBinding
 import com.google.android.gms.tasks.Task
