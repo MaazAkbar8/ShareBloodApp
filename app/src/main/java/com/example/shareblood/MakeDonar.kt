@@ -19,7 +19,7 @@ class MakeDonar : AppCompatActivity() {
     private lateinit var binding:ActivityMakeDonarBinding
     private lateinit var searching:Item
     private var db= Firebase.firestore
-    @SuppressLint("MissingInflatedId", "RestrictedApi")
+    @SuppressLint("MissingInflatedId", "RestrictedApi", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityMakeDonarBinding.inflate(layoutInflater)
@@ -35,6 +35,7 @@ class MakeDonar : AppCompatActivity() {
          val city = binding.etCity.text.toString()
          val bloodGroup = binding.etBloodGroup.text.toString()
          val age = binding.etAge.text.toString()
+         val mobilenumber=binding.etContact.text.toString()
 
 //*********************************************************************************************************************************
          // these code is  edittext is empty to show error message
@@ -53,35 +54,45 @@ class MakeDonar : AppCompatActivity() {
              binding.etAge.setError("field not be empty")
       //*******************************************************************************************************************
 
-         } else {
+         } else if (mobilenumber.isEmpty()){
+             binding.etAge.setError("field not be empty")
 
-        // user data
+         }else {
+
+
+             // user data
              val usermap = hashMapOf(
                  "name" to name,
                  "city" to city,
                  "bloodGroup" to bloodGroup,
-                 "age" to age
+                 "age" to age,
+                 "mobilenumber" to mobilenumber
              )
-             val userId = FirebaseAuth.getInstance().currentUser!!.uid
+
+            // val userId = FirebaseAuth.getInstance().currentUser!!.uid
              // collection ="user"   document =" userid db default create"   set= userdata
              // save data in databse
 
-             db.collection("user").document(userId).set(usermap)
-                 .addOnSuccessListener {
+            // db.collection("user").document(userId).set(usermap)
+                     db.collection("user").add(usermap)
+                 .addOnSuccessListener {  documentReference->
                      Toast.makeText(this, "successfully Saved", Toast.LENGTH_SHORT).show()
                      // this work is if user click button to these code through all edittext is empty or clear
                      binding.etName.text?.clear()
                      binding.etCity.text.clear()
                      binding.etBloodGroup.text.clear()
                      binding.etAge.text?.clear()
+                     binding.etContact.text?.clear()
                  }
-                 .addOnFailureListener {
-                     Toast.makeText(this, "Oh Failed", Toast.LENGTH_SHORT).show()
+                 .addOnFailureListener { e->
+                     Toast.makeText(this, "Oh Failed $e", Toast.LENGTH_SHORT).show()
                  }
          }
 
 
      }
+
+
 
 
 

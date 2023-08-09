@@ -3,104 +3,94 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:layout_width="match_parent"
-
     android:layout_height="wrap_content">
-    
-    
+
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="180dp"
         android:layout_margin="8dp"
-        app:cardCornerRadius="15dp"
-
         app:cardBackgroundColor="@color/white"
+
+        app:cardCornerRadius="15dp"
         app:cardElevation="2dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
 
-           >
+            >
 
-            <TextView
-                android:id="@+id/Name"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="10sp"
-                android:layout_marginTop="9sp"
-                android:layout_marginEnd="10sp"
-                android:text="Name: "
-                android:padding="5dp"
-                android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_person_24"
-                android:drawablePadding="3sp"
-                android:textSize="18sp"/>
 
             <TextView
-                android:id="@+id/City"
+                android:id="@+id/tvRegNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/Name"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
-                android:padding="5dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_holiday_village_24"
-                android:text="City: "
-                android:drawablePadding="3dp"
+                android:drawablePadding="15dp"
+                android:padding="5dp"
+                android:paddingStart="10dp"
+                android:text="RegNo: "
                 android:textSize="18sp"
-                 />
+                android:textStyle="" />
+
+
+
 
             <TextView
-                android:id="@+id/bloodGroup"
+                android:id="@+id/tvcity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/City"
+                android:layout_below="@+id/tvRegNo"
                 android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
+                android:background="@drawable/view_bg_shape"
                 android:drawableStart="@drawable/baseline_bloodtype_24"
-                android:drawablePadding="3dp"
-                android:layout_marginTop="8dp"
+                android:drawablePadding="1dp"
+
                 android:padding="5dp"
-                android:background="@drawable/view_bg_shape"
-                android:text="BloodType: "
-                android:textSize="18sp"/>
+                android:text="city: "
+                android:textSize="18sp" />
 
             <TextView
-                android:id="@+id/age"
+                android:id="@+id/tvhospital"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/bloodGroup"
+                android:layout_below="@+id/tvcity"
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/view_bg_shape"
-                android:text="Age: "
+                android:drawableStart="@drawable/baseline_hospital"
+                android:drawablePadding="1sp"
                 android:padding="5dp"
-                android:textSize="18sp"/>
+                android:text="Hospital: "
+                android:textSize="18sp" />
 
             <View
                 android:id="@+id/black_line"
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:layout_below="@id/age"
+                android:layout_below="@id/tvhospital"
                 android:layout_marginTop="5sp"
                 android:layout_marginBottom="5dp"
                 android:background="@color/black" />
 
             <androidx.appcompat.widget.AppCompatImageView
-                android:id="@+id/call_btn"
+                android:id="@+id/call_btn2"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_below="@+id/black_line"
                 android:layout_alignParentEnd="true"
                 android:layout_marginEnd="20sp"
                 android:layout_marginBottom="7sp"
-                android:src="@drawable/baseline_phone_24"/>
-
+                android:src="@drawable/baseline_phone_24" />
 
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
+
 </LinearLayout>

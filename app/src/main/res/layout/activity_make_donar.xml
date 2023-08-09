@@ -51,7 +51,7 @@ app:cardElevation="2dp">
                 android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
         <!--city-->
         <com.google.android.material.textfield.TextInputLayout
@@ -75,7 +75,7 @@ app:cardElevation="2dp">
                 android:drawablePadding="7dp"
                 android:inputType="none"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
 
         </com.google.android.material.textfield.TextInputLayout>
@@ -102,7 +102,7 @@ app:cardElevation="2dp">
                 android:inputType="none"
                 android:padding="7dp"
                 android:textColor="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
 
         </com.google.android.material.textfield.TextInputLayout>
 
@@ -111,8 +111,8 @@ app:cardElevation="2dp">
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="12sp"
-            android:layout_marginStart="10sp"
-            android:layout_marginEnd="10sp">
+            android:layout_marginStart="11sp"
+            android:layout_marginEnd="11sp">
 
             <androidx.appcompat.widget.AppCompatEditText
                 android:id="@+id/et_age"
@@ -123,7 +123,26 @@ app:cardElevation="2dp">
                 android:inputType="textPersonName"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
-                android:textSize="20sp" />
+                android:textSize="18sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+       <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="11sp"
+            android:layout_marginEnd="11sp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/et_contact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/view_bg_shape"
+                android:hint=" mobile number"
+                android:inputType="number"
+                android:textColor="@color/black"
+                android:textColorHint="@color/black"
+                android:textSize="18sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <TextView
@@ -131,9 +150,7 @@ app:cardElevation="2dp">
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-
-
-            android:layout_marginTop="70sp"
+            android:layout_marginTop="50sp"
             android:background="@drawable/view_bg_shape"
             android:paddingStart="4sp"
             android:text="Post Donar"
