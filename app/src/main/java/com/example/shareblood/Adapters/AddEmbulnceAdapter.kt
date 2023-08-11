@@ -22,22 +22,22 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
 
         val city: TextView = itemView.findViewById(R.id.tvcity)
         val hospital: TextView = itemView.findViewById(R.id.tvhospital)
-        var regNo: TextView = itemView.findViewById(R.id.tvRegNo)
+        var RegNo: TextView = itemView.findViewById(R.id.tvRegNo)
         var phoneicon2: ImageView = itemView.findViewById(R.id.call_btn2)
+       var whatsapp:ImageView=itemView.findViewById(R.id.whatsp_btn)
 
 //*************************************************************************************************************************************
         //bind  datamodel
         @SuppressLint("QueryPermissionsNeeded")
-        fun bind2(ambulance: AddEmmbulncDataModel) {
+        fun bind(ambulance: AddEmmbulncDataModel) {
 
-            // phoneicon eventhandling newly
+            // phoneicon Onclicklistener
             phoneicon2.setOnClickListener {
 
-
-                val phone2 = ambulance.number
+                val phone = ambulance.number
 
                 val intent =
-                    Intent(Intent.ACTION_DIAL, Uri.parse("tel:${phone2}"))// phonenumber
+                    Intent(Intent.ACTION_DIAL, Uri.parse("tel:${phone}"))// phonenumber
                 if (intent.resolveActivity(context.packageManager) != null) {
                     context.startActivity(intent)
                 } else {
@@ -48,8 +48,8 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
                     )
                         .show()
                     //phonenumber o dase k
-                    if (phone2 != null) {
-                        initiatemobileCall(context, phone2)
+                    if (phone != null) {
+                        initiatemobileCall(context, phone)
 
                     } else {
                         android.widget.Toast.makeText(
@@ -64,10 +64,28 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
             }
 
         }
+       //**************************************************************************************************************************
+                  //whatsapp btn Onclckelistener
 
+             fun bind2(ambulance2:AddEmmbulncDataModel){
 
-    }
+                 whatsapp.setOnClickListener {
+                     val phone2 = ambulance2.number // Replace with the desired phone number
+                     val i = Intent(Intent.ACTION_SENDTO)
+                     i.data = Uri.parse("smsto:${phone2}")
+                     i.putExtra("sms_body", "Hello, let's chat on WhatsApp!")
+                     i.setPackage("com.whatsapp")
 
+                     if (i.resolveActivity(context.packageManager) != null) {
+                         context. startActivity( i)
+                     } else {
+                         Toast.makeText(context, "whatsp is not available", Toast.LENGTH_SHORT).show()
+                     }
+
+                 }
+                 }
+
+             }
 //*************************************************************************************************************************************
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddEmbulnceAdapter.MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -88,7 +106,8 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
         // holder.hospital.append("${item.hospital}")
         holder.hospital.text = item.hospital
         //  holder.RegNo.append("${item.RegNo}")
-        holder.regNo.text = item.regNo
+        holder.RegNo.text = item.RegNo
+        holder.bind(item)
         holder.bind2(item)
         //  holder.mobilenumber.append("${item.mobilenumber}")
 

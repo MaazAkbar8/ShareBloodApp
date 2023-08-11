@@ -55,7 +55,7 @@ class MakeDonar : AppCompatActivity() {
       //*******************************************************************************************************************
 
          } else if (mobilenumber.isEmpty()){
-             binding.etAge.setError("field not be empty")
+             binding.etContact.setError("field not be empty")
 
          }else {
 
@@ -71,7 +71,7 @@ class MakeDonar : AppCompatActivity() {
 
             // val userId = FirebaseAuth.getInstance().currentUser!!.uid
              // collection ="user"   document =" userid db default create"   set= userdata
-             // save data in databse
+             //                  (save data in databse)
 
             // db.collection("user").document(userId).set(usermap)
                      db.collection("user").add(usermap)
@@ -113,6 +113,8 @@ class MakeDonar : AppCompatActivity() {
 
         val Adapter=ArrayAdapter(this,R.layout.list_item_bloodtype,m)
         binding.etBloodGroup.setAdapter(Adapter)
+//*****************************************************************************************************************************
+
 
     }
 

@@ -34,22 +34,23 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="14sp">
 
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="14dp">
+                android:layout_marginTop="11sp">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_number"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/view_bg_shape"
-                    android:drawableStart="@drawable/baseline_phone_24"
-                    android:drawablePadding="7dp"
+                    android:drawableStart="@drawable/person_svgrepo_com"
+                    android:drawablePadding="5dp"
                     android:hint=" mobile No"
                     android:maxLength="11"
                     android:inputType="number"
@@ -63,15 +64,15 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="14dp">
+                android:layout_marginTop="10sp">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_registeration"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/view_bg_shape"
-
-                    android:drawablePadding="7dp"
+                    android:drawableStart="@drawable/license_plate_svgrepo_com"
+                    android:drawablePadding="5dp"
                     android:hint=" RegNo."
                     android:inputType="textPersonName"
                     android:textColor="@color/black"
@@ -86,19 +87,17 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
+                android:layout_marginTop="10dp"
 
                 android:hint="city">
 
                 <AutoCompleteTextView
                     android:id="@+id/et_city"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="20dp"
-                    android:layout_marginEnd="12dp"
+                    android:layout_height="55dp"
+
                     android:background="@drawable/view_bg_shape"
-                    android:drawableStart="@drawable/baseline_holiday_village_24"
+                    android:drawableStart="@drawable/location_svgrepo_com"
                     android:drawablePadding="7dp"
                     android:inputType="none"
                     android:textColor="@color/black"
@@ -114,14 +113,14 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="14dp">
+               android:layout_marginTop="10sp">
 
                 <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/et_hospital"
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="55dp"
                     android:background="@drawable/view_bg_shape"
-                    android:drawableStart="@drawable/baseline_hospital"
+                    android:drawableStart="@drawable/hospital_svgrepo_com"
                     android:drawablePadding="7dp"
                     android:hint=" Hospital"
                     android:inputType="textPersonName"

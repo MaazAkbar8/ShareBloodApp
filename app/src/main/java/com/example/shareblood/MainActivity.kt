@@ -70,11 +70,6 @@ class MainActivity : AppCompatActivity() {
 
 //***********************************************************************************************************************************
         // Get data from database in display Recyclerview
-
-
-
-
-
             db.collection("user").get().addOnSuccessListener {
                 if (!it.isEmpty) {
                     for (data in it.documents) {

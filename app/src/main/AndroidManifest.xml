@@ -38,6 +38,31 @@
         <activity
             android:name=".LoginScreen"
             android:exported="false" />
+        <!-- whatsap-->
+
+        <activity
+            android:name="com.whatsapp.Conversation"
+            android:label="WhatsApp"
+            android:icon="@drawable/whatsapp_svgrepo_com"
+            tools:ignore="MissingClass"
+            android:exported="true"> <!-- Replace ic_whatsapp with your actual icon -->
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="sms"/>
+                <data android:scheme="smsto"/>
+                <data android:scheme="mms"/>
+                <data android:scheme="mmsto"/>
+                <data android:scheme="tel"/>
+                <data android:scheme="mailto"/>
+                <data android:scheme="imto"/>
+                <data android:scheme="gtalk"/>
+                <data android:scheme="irc"/>
+                <data android:scheme="twitter"/>
+                <data android:scheme="whatsapp" />
+                <data android:host="open" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".splashscrren"
             android:exported="true">

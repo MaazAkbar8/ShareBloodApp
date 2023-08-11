@@ -97,11 +97,7 @@ class signupscreen : AppCompatActivity() {
             }
         }
         //*****************************************************************************************************************
-           // contact work
-        binding.contact.setOnClickListener {
 
-            binding.contact.setText("034")
-        }
 
     }
 }

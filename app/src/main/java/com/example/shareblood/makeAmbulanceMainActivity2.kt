@@ -27,7 +27,7 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
             val number= binding.etNumber.text.toString()
             val city=binding.etCity.text.toString()
             val hospital=binding.etHospital.text.toString()
-            val  regNo=binding.etRegisteration.text.toString()
+            val  RegNo=binding.etRegisteration.text.toString()
 
 
             // these code is  edittext is empty to show error message
@@ -41,7 +41,7 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
             } else if (hospital.isEmpty()) {
                 binding.etHospital.setError("field not be empty")
 
-            } else if (regNo.isEmpty()) {
+            } else if (RegNo.isEmpty()) {
 
                 binding.etRegisteration.setError("field not be empty")
 
@@ -52,7 +52,7 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
                     "number" to number,
                     "city" to city,
                     "hospital" to hospital,
-                    "regNo" to regNo
+                    "RegNo" to RegNo
                 )
               //  val unique = FirebaseAuth.getInstance().currentUser!!.uid // userId
                 // collection ="user"   document =" userid db default create"   set= userdata

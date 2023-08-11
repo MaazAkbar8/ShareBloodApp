@@ -32,8 +32,8 @@
                 android:text="Name: "
                 android:padding="5dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_person_24"
-                android:drawablePadding="3sp"
+                android:drawableStart="@drawable/person_svgrepo_com"
+                android:drawablePadding="5sp"
                 android:textSize="18sp"/>
 
             <TextView
@@ -46,9 +46,9 @@
                 android:layout_marginEnd="10dp"
                 android:padding="5dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_holiday_village_24"
+                android:drawableStart="@drawable/location_svgrepo_com"
                 android:text="City: "
-                android:drawablePadding="3dp"
+                android:drawablePadding="5dp"
                 android:textSize="18sp"
                  />
 
@@ -59,8 +59,8 @@
                 android:layout_below="@+id/City"
                 android:layout_marginStart="10dp"
                 android:layout_marginEnd="10dp"
-                android:drawableStart="@drawable/baseline_bloodtype_24"
-                android:drawablePadding="3dp"
+                android:drawableStart="@drawable/blood_type_svgrepo_com"
+                android:drawablePadding="5dp"
                 android:layout_marginTop="8dp"
                 android:padding="5dp"
                 android:background="@drawable/view_bg_shape"
@@ -76,9 +76,11 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/view_bg_shape"
-                android:text="Age: "
+                android:drawableStart="@drawable/age_18_svgrepo_com"
+                android:drawablePadding="5dp"
                 android:padding="5dp"
-                android:textSize="18sp"/>
+                android:text="Age: "
+                android:textSize="18sp" />
 
             <View
                 android:id="@+id/black_line"
@@ -95,9 +97,19 @@
                 android:layout_height="30dp"
                 android:layout_below="@+id/black_line"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20sp"
+                android:layout_marginEnd="13sp"
                 android:layout_marginBottom="7sp"
-                android:src="@drawable/baseline_phone_24"/>
+                android:src="@drawable/phone_call_ringing_svgrepo_com"/>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/whatsp_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/black_line"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="55sp"
+                android:layout_marginBottom="7sp"
+                android:src="@drawable/whatsapp_svgrepo_com"/>
 
 
 

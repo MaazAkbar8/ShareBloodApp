@@ -116,7 +116,7 @@ class AmbulanceActivity : AppCompatActivity() {
         val filteredItems = List2.filter {
             it.city!!.contains(query, ignoreCase = true) ||
                     it.hospital!!.contains(query, ignoreCase = true) ||
-                    (it.regNo!!.contains(query, ignoreCase = true))
+                    (it.RegNo!!.contains(query, ignoreCase = true))
 
         }
         adapter2 = AddEmbulnceAdapter(this,filteredItems)

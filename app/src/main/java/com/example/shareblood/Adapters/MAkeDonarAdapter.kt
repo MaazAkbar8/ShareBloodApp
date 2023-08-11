@@ -10,9 +10,12 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.core.content.ContextCompat.startActivity
+import androidx.core.os.persistableBundleOf
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shareblood.DataModel.DataModelDonorList
 import com.example.shareblood.R
+import org.checkerframework.checker.units.qual.s
 
 
 class MAkeDonarAdapter(val context: Context,private val usersList:List<DataModelDonorList>):RecyclerView.Adapter<MAkeDonarAdapter.MyViewHolder>() {
@@ -26,16 +29,15 @@ class MAkeDonarAdapter(val context: Context,private val usersList:List<DataModel
         var bloodGroup: TextView = itemView.findViewById(R.id.bloodGroup)
         var age: TextView = itemView.findViewById(R.id.age)
         val phoneicon: ImageView = itemView.findViewById(R.id.call_btn)
+        val whatap: ImageView = itemView.findViewById(R.id.whatsp_btn)
 
         //*******************************************************************************************************************************************************************
-        // simple function binding
         @SuppressLint("QueryPermissionsNeeded")
+        // simple function binding
         fun bind(donar: DataModelDonorList) {
 
-            // phoneicon eventhandling newly
+            // phone onclicked
             phoneicon.setOnClickListener {
-
-
                 val phone = donar.mobilenumber
 
                 val intent =
@@ -61,11 +63,54 @@ class MAkeDonarAdapter(val context: Context,private val usersList:List<DataModel
                         )
                             .show()
 
-                    }}
+                    }
+                }
+            }
+
+        }
+            //*******************************************************************************************************************
+            // whatsp_btn onclicked
+            fun bind2(donar2: DataModelDonorList) {
+                whatap.setOnClickListener {
+
+                    val phone2 = donar2.mobilenumber // Replace with the desired phone number
+                    val i = Intent(Intent.ACTION_SENDTO)
+                    i.data = Uri.parse("smsto:${phone2}")
+                    i.putExtra("sms_body", "Hello, let's chat on WhatsApp!")
+                    i.setPackage("com.whatsapp")
+
+                     if (i.resolveActivity(context.packageManager) != null) {
+                   context. startActivity( i)
+                      } else {
+                         Toast.makeText(context, "whatsp is not available", Toast.LENGTH_SHORT).show()
+                     }
+
+
                 }
 
             }
-        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //********************************************************************************************************************************
 
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -89,10 +134,10 @@ class MAkeDonarAdapter(val context: Context,private val usersList:List<DataModel
             //holder.age.append(" ${item.age}")
             holder.age.text = item.age
             //  holder.phoneicon.append("${item.city}")
-
-
             // new only donar
             holder.bind(item)
+            holder.bind2(item)
+
 
         }
 

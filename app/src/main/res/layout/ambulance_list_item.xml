@@ -29,9 +29,10 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawablePadding="15dp"
+                android:drawablePadding="5dp"
                 android:padding="5dp"
-                android:paddingStart="10dp"
+                android:drawableStart="@drawable/license_plate_svgrepo_com"
+                android:paddingStart="5dp"
                 android:text="RegNo: "
                 android:textSize="18sp"
                 android:textStyle="" />
@@ -48,8 +49,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_bloodtype_24"
-                android:drawablePadding="1dp"
+                android:drawableStart="@drawable/location_svgrepo_com"
+                android:drawablePadding="5dp"
 
                 android:padding="5dp"
                 android:text="city: "
@@ -64,8 +65,8 @@
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="10dp"
                 android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/baseline_hospital"
-                android:drawablePadding="1sp"
+                android:drawableStart="@drawable/hospital_svgrepo_com"
+                android:drawablePadding="5sp"
                 android:padding="5dp"
                 android:text="Hospital: "
                 android:textSize="18sp" />
@@ -85,9 +86,20 @@
                 android:layout_height="30dp"
                 android:layout_below="@+id/black_line"
                 android:layout_alignParentEnd="true"
-                android:layout_marginEnd="20sp"
+                android:layout_marginEnd="13sp"
                 android:layout_marginBottom="7sp"
-                android:src="@drawable/baseline_phone_24" />
+                android:src="@drawable/phone_call_ringing_svgrepo_com" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/whatsp_btn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/black_line"
+                android:layout_alignParentEnd="true"
+
+                android:layout_marginEnd="55sp"
+                android:layout_marginBottom="7sp"
+                android:src="@drawable/whatsapp_svgrepo_com"/>
 
 
         </RelativeLayout>

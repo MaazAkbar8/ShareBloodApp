@@ -5,7 +5,7 @@ class AddEmmbulncDataModel (
 
    val city:String?=null,
    val hospital:String?=null,
-   val regNo:String?=null,
+   val RegNo:String?=null,
 val number:String?=null
 
         )
