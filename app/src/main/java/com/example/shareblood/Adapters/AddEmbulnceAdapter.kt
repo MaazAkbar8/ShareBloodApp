@@ -71,7 +71,9 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
 
                  whatsapp.setOnClickListener {
                      val phone2 = ambulance2.number // Replace with the desired phone number
-                     val i = Intent(Intent.ACTION_SENDTO)
+
+
+                    /* val i = Intent(Intent.ACTION_SENDTO)
                      i.data = Uri.parse("smsto:${phone2}")
                      i.putExtra("sms_body", "Hello, let's chat on WhatsApp!")
                      i.setPackage("com.whatsapp")
@@ -80,10 +82,17 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
                          context. startActivity( i)
                      } else {
                          Toast.makeText(context, "whatsp is not available", Toast.LENGTH_SHORT).show()
+                     }*/
+                     if (phone2 != null) {
+                         whatsapp(phone2)
                      }
-
                  }
                  }
+       fun whatsapp(phonenumber2: String){
+           val uri = Uri.parse("https://api.whatsapp.com/send?phone=$phonenumber2")
+           val intent = Intent(Intent.ACTION_VIEW, uri)
+           context.startActivity(intent)
+       }
 
              }
 //*************************************************************************************************************************************

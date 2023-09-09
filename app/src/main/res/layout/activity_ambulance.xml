@@ -10,30 +10,30 @@
 
 
     <LinearLayout
-        android:id="@+id/lv"
+        android:id="@+id/lv2"
         android:orientation="vertical"
         android:layout_centerHorizontal="false"
         android:layout_below="@+id/title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_marginStart="35dp"
+        android:layout_width="356dp"
+        android:visibility="gone"
+        android:layout_height="wrap_content"
+        >
 
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/search"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="80dp"
-
-
-            android:layout_marginTop="15sp">
+            android:layout_width="365dp"
+            android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/etsearch2"
-                android:layout_width="match_parent"
-                android:layout_height="58dp"
-                android:layout_marginStart="45dp"
+                android:layout_width="303dp"
+                android:layout_height="43dp"
+                android:layout_marginStart="51dp"
                 android:layout_marginBottom="10sp"
-                android:layout_marginEnd="45dp"
+                android:layout_marginEnd="20dp"
                 android:background="@drawable/searchview_bg"
                 android:drawablePadding="8dp"
                 android:hint=" search...."
@@ -58,36 +58,61 @@
     android:layout_marginTop="20sp"/>
 
 
+    <TextView
+        android:id="@+id/search_icon"
+        android:layout_width="63dp"
+        android:layout_height="43dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="14dp"
+        android:layout_marginEnd="-27dp"
+        android:drawableStart="@drawable/search_plus_svgrepo_com" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcv2"
-        android:layout_width="match_parent"
-        android:layout_height="675dp"
-        android:layout_above="@id/btnadd"
-        android:layout_below="@id/lv"
-        android:layout_centerHorizontal="true"
+        android:layout_width="376dp"
+        android:layout_height="776dp"
+        android:layout_above="@id/tvAds2"
+        android:layout_below="@id/lv2"
+        android:layout_centerInParent="true"
         android:layout_marginStart="12sp"
-        android:layout_marginTop="7dp"
+        android:layout_marginTop="-1dp"
         android:layout_marginEnd="12sp"
-        android:layout_marginBottom="-14dp" />
+        android:layout_marginBottom="0dp" />
 
     <TextView
-        android:id="@+id/btnadd"
-        android:layout_width="222dp"
+        android:id="@+id/tvAds2"
+        android:layout_width="354dp"
         android:layout_height="wrap_content"
+
+        android:layout_alignParentStart="true"
+
+        android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="20dp"
-        android:layout_marginBottom="22dp"
-        android:background="@drawable/view_bg_shape"
-        android:backgroundTint="@color/purple_500"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginBottom="1dp"
+        android:background="@drawable/ads_bg_shape"
         android:padding="16dp"
-        android:text="Add Ambulance"
+        android:text="For Ads"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="16sp"
-        android:textStyle="bold" />
+        android:textStyle="bold|italic" />
+
+
+    <TextView
+        android:id="@+id/Add_Donar2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+
+
+        android:layout_marginEnd="-11dp"
+        android:layout_marginBottom="-11dp"
+        android:drawableStart="@drawable/add_circle_svgrepo_com" />
 
 
 </RelativeLayout>

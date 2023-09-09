@@ -2,10 +2,12 @@ package com.example.shareblood
 
 import android.content.ClipData
 import android.content.Intent
+import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.shareblood.Adapters.AddEmbulnceAdapter
@@ -31,7 +33,7 @@ class AmbulanceActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-        binding.btnadd.setOnClickListener {
+        binding.AddDonar2  .setOnClickListener {
             val i = Intent(this,makeAmbulanceMainActivity2::class.java)
             startActivity(i)
         }
@@ -84,6 +86,16 @@ class AmbulanceActivity : AppCompatActivity() {
 
         // Fetch data from Firebase and update RecyclerView
         fetchItemsFromFirebase()
+
+        //**********************************************************************************************************
+
+                              // search_icon clicklistener
+
+                     binding.searchIcon.setOnClickListener{
+                         binding.lv2.visibility=VISIBLE
+                     }
+        //************************************************************************************************************
+
     }//oncretae end
 
 
@@ -124,5 +136,7 @@ class AmbulanceActivity : AppCompatActivity() {
         binding.Rcv2.adapter = adapter2
 
     }
+
+
 
     }

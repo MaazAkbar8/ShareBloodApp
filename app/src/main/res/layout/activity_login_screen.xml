@@ -52,8 +52,7 @@
                       android:textSize="26sp"
                       android:layout_gravity="center"
                       android:textStyle="bold"/>
-
-                <!-- mobilenumber-->
+                <!-- email-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/Email"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -61,7 +60,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10sp">
 
-                    <com.google.android.material.textfield.TextInputEditText
+                <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/etEmail"
                         android:layout_width="match_parent"
                         android:layout_height="50dp"

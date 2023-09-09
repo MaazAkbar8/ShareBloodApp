@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+
+    <uses-permission android:name="android.permission.CALL_PHONE"
+        tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" />
+    <uses-permission android:name="android.permission.SEND_SMS"/>
 
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_lancher2"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.ShareBlood"
@@ -20,15 +25,7 @@
         <activity
             android:name=".AmbulanceActivity"
             android:exported="false" />
-        <activity
-            android:name=".pass_forgotActivity"
-            android:exported="false" />
-        <activity
-            android:name=".findDoar"
-            android:exported="false" />
-        <activity
-            android:name=".findDonarList"
-            android:exported="false" />
+
         <activity
             android:name=".MakeDonar"
             android:exported="false" />
@@ -40,29 +37,7 @@
             android:exported="false" />
         <!-- whatsap-->
 
-        <activity
-            android:name="com.whatsapp.Conversation"
-            android:label="WhatsApp"
-            android:icon="@drawable/whatsapp_svgrepo_com"
-            tools:ignore="MissingClass"
-            android:exported="true"> <!-- Replace ic_whatsapp with your actual icon -->
-            <intent-filter>
-                <action android:name="android.intent.action.SENDTO"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:scheme="sms"/>
-                <data android:scheme="smsto"/>
-                <data android:scheme="mms"/>
-                <data android:scheme="mmsto"/>
-                <data android:scheme="tel"/>
-                <data android:scheme="mailto"/>
-                <data android:scheme="imto"/>
-                <data android:scheme="gtalk"/>
-                <data android:scheme="irc"/>
-                <data android:scheme="twitter"/>
-                <data android:scheme="whatsapp" />
-                <data android:host="open" />
-            </intent-filter>
-        </activity>
+
         <activity
             android:name=".splashscrren"
             android:exported="true">

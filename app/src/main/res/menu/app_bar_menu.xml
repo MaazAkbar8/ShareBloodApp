@@ -5,9 +5,14 @@
     <item
         android:id="@+id/embulance"
         android:title="@string/embulance"
-        android:icon="@drawable/ic_embulance"
+        android:icon="@drawable/ambulance_svgrepo_com"
         app:showAsAction="always"
         />
+    <item
+        android:id="@+id/search"
+        android:title="search"
+        android:icon="@drawable/search_plus_svgrepo_com"
+        app:showAsAction="always"/>
 
 
 
