@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "815860175731",
+    "project_id": "share-blood-b3f5f",
+    "storage_bucket": "share-blood-b3f5f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:815860175731:android:7a67ea85b85e2088ea2b06",
+        "android_client_info": {
+          "package_name": "com.example.shareblood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "815860175731-s0s3c1rref6t6utq9moa75oua4snhj1k.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHb9UaLOuiAnlKmxiNcT08mf0bs5jf-Sk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "815860175731-s0s3c1rref6t6utq9moa75oua4snhj1k.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
