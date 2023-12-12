@@ -132,7 +132,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcv2"
         android:layout_width="match_parent"
-        android:layout_height="590dp"
+        android:layout_height="587dp"
         android:layout_below="@id/RG_LLV"
         android:layout_marginTop="2dp" />
 

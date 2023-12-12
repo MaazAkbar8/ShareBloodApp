@@ -4,15 +4,13 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Intent
 import android.net.Uri
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.MediaStore
-import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import androidx.core.app.ActivityCompat.startActivityForResult
+import androidx.appcompat.app.AppCompatActivity
 import com.example.shareblood.DataModel.signin_Data
 import com.example.shareblood.databinding.ActivitySignupscreenBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -87,7 +85,7 @@ class signupscreen : AppCompatActivity() {
 
         // Bloodgroup dropdownlist works
 
-        val m = listOf(" (A+)", " (A-)", "(B+) ", "(B-) ", " (AB+)", "(AB-) ", " (O+) ", "(O-)")
+        val m = listOf("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
 
         val Adapter = ArrayAdapter(this, R.layout.list_item_bloodtype, m)
         binding.dropdownfieldBloodg.setAdapter(Adapter)

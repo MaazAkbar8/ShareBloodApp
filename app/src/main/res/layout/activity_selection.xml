@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/viewgroup_bg"
+    tools:context=".SelectionActivity"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="51dp"
+         android:paddingStart="150dp"
+        android:background="#A53737"
+        android:paddingTop="10dp"
+        android:text="Choosing"
+        android:textSize="23dp"
+        android:textStyle="bold"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="250dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/As_A_donnar"
+            android:layout_width="324dp"
+            android:layout_height="47dp"
+            android:background="@drawable/searchview_bg"
+            android:gravity="center"
+            android:text="As a donnar"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/As_A_Ambulance"
+            android:layout_width="324dp"
+            android:layout_height="47dp"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/searchview_bg"
+            android:gravity="center"
+            android:text="As a Ambulance"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+
+    </LinearLayout>
+</LinearLayout>

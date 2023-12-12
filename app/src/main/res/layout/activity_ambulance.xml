@@ -12,59 +12,30 @@
     <LinearLayout
         android:id="@+id/lvsearch"
         android:layout_width="410dp"
-        android:layout_height="77dp"
+        android:layout_height="70dp"
         android:layout_below="@+id/title"
-        android:layout_marginStart="20dp"
+
 
 
         android:orientation="horizontal"
-        android:visibility="gone"
-        >
-
-
-        <!-- citySearch-->
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="207dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:hint="city">
-
-            <AutoCompleteTextView
-                android:id="@+id/citysearch"
-                android:layout_width="186dp"
-
-                android:layout_height="60dp"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="20dp"
-                android:layout_marginEnd="10dp"
-                android:background="@drawable/view_bg_shape"
-                android:drawableStart="@drawable/location_svgrepo_com"
-                android:drawablePadding="5dp"
-                android:inputType="none"
-                android:padding="5dp"
-                android:textColor="@color/black"
-                android:textSize="15sp" />
-        </com.google.android.material.textfield.TextInputLayout>
+        android:visibility="gone">
 
 
         <!-- bloddtypeSearch-->
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="169dp"
+            android:layout_width="171dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+
             android:layout_marginTop="10dp"
 
 
-            android:hint="BloodType">
+            android:hint="hospital">
 
             <AutoCompleteTextView
-                android:id="@+id/bloodtypesearch"
-                android:layout_width="150dp"
-                android:layout_height="60dp"
+                android:id="@+id/hospitalSearch"
+                android:layout_width="170dp"
+                android:layout_height="45dp"
                 android:layout_marginTop="20dp"
 
                 android:background="@drawable/view_bg_shape"
@@ -78,12 +49,83 @@
 
         </com.google.android.material.textfield.TextInputLayout>
 
+        <!-- citySearch-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="city">
+
+            <AutoCompleteTextView
+                android:id="@+id/citysearch"
+                android:layout_width="170dp"
+
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/view_bg_shape"
+                android:drawableStart="@drawable/location_svgrepo_com"
+                android:drawablePadding="5dp"
+                android:inputType="none"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RG_LLV"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@+id/lvsearch"
+
+        android:orientation="vertical"
+        >
+
+        <RadioGroup
+            android:id="@+id/Radiogroup2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            >
+
+            <RadioButton
+                android:id="@+id/Active2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="Active"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/NotActive2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="NotActive"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+
+        </RadioGroup>
+
+
     </LinearLayout>
 
 
 
 
-<TextView
+
+    <TextView
     android:id="@+id/title"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -121,15 +163,10 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcv"
-        android:layout_width="376dp"
-        android:layout_height="776dp"
-        android:layout_above="@id/tvAds2"
-        android:layout_below="@id/lvsearch"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="12sp"
-        android:layout_marginTop="-1dp"
-        android:layout_marginEnd="12sp"
-        android:layout_marginBottom="0dp" />
+        android:layout_width="match_parent"
+        android:layout_height="599dp"
+        android:layout_below="@id/RG_LLV"
+        android:layout_marginTop="2dp" />
 
 
 
@@ -159,12 +196,10 @@
         android:id="@+id/Add_Donar2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-
-
-        android:layout_marginEnd="-2dp"
-        android:layout_marginBottom="66dp"
+        android:layout_marginStart="-4dp"
+        android:layout_marginBottom="49dp"
         android:drawableStart="@drawable/add_circle_svgrepo_com__1_" />
 
 

@@ -97,17 +97,19 @@ class MainActivity : AppCompatActivity() {
                 R.id.Active -> {
 
                     sharedPreferencesHelper.saveSelectedOption("Active")
+                    binding.Radiogroup.visibility= GONE
                     updateAdapter()
                 }
 
                 R.id.NotActive -> {
 
                     sharedPreferencesHelper.saveSelectedOption("NotActive")
+                    binding.Radiogroup.visibility= GONE
                     updateAdapter()
                 }
             }
         }
-        updateAdapter()//     this caling through if im closed and reopen the app to selected option deside my cardview
+        updateAdapter()//     this calling through if im closed and reopen the app to selected option deside my cardview
 //******************************************************************************************************************************************
                            //   profileActivity cliked the active and notActive button work
         // Check if the flag is present in the intent
@@ -286,7 +288,7 @@ class MainActivity : AppCompatActivity() {
 
         // Bloodgroup dropdownlist works
 
-        val m = listOf("(A+)", "(A-)", "(B+)", "(B-)", "(AB+)", "AB-", " (O+)", "O-")
+        val m = listOf("A+", "A-", "B+", "B-", "AB+", "AB-", " O+", "O-")
 
         val Adapter = ArrayAdapter(this, R.layout.list_item_bloodtype, m)
         binding.bloodtypesearch.setAdapter(Adapter)
@@ -377,15 +379,23 @@ class MainActivity : AppCompatActivity() {
 
 
         val currentUserId: String =  getCurrentUserId()
-        var isNotActiveSelected = false // Default state Active and notACTVIE CHEKED
-        //adapter = MAkeDonarAdapter(this, filteredItems,isNotActiveSelected,currentUserId)// da  o pke da this an bad =filteredItems
+        //          if user cheked option NotActive  then search this current user  cardview = hide
+        val isNotActiveSelected = sharedPreferencesHelper.getSelectedOption() == "NotActive"
+       // var isNotActiveSelected = false // Default state Active and notACTVIE CHEKED
 
-    if (filteredItems.isEmpty()) {
-        // Display an empty RecyclerView
-        adapter = MAkeDonarAdapter(this, ArrayList(), isNotActiveSelected, currentUserId)
-    } else {
-        adapter = MAkeDonarAdapter(this, filteredItems, isNotActiveSelected, currentUserId)
-    }
+        // Filter out the current user's card view if "Not Active" is selected
+        val filteredList = if (isNotActiveSelected) {
+            filteredItems.filterNot { it.userId == currentUserId }
+        } else {
+            filteredItems
+        }
+
+        if (filteredList.isEmpty()) {
+            // Display an empty RecyclerView
+            adapter = MAkeDonarAdapter(this, ArrayList(), isNotActiveSelected, currentUserId)
+        } else {
+            adapter = MAkeDonarAdapter(this, filteredList, isNotActiveSelected, currentUserId)
+        }
 
         binding.Rcv2.adapter = adapter
 

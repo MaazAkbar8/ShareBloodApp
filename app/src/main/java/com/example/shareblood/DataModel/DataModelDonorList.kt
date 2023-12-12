@@ -7,7 +7,7 @@ data class DataModelDonorList(
     val bloodGroup:String?=null,
     val age:String?=null,
     val mobilenumber:String?=null,
-    val status: String? = null
+
 
 )
 

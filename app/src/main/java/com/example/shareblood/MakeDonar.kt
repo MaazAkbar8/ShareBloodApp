@@ -2,12 +2,11 @@ package com.example.shareblood
 
 import android.annotation.SuppressLint
 import android.content.ClipData.Item
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.TextView
 import android.widget.Toast
-import com.example.shareblood.DataModel.DataModelDonorList
+import androidx.appcompat.app.AppCompatActivity
 import com.example.shareblood.databinding.ActivityMakeDonarBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
@@ -70,8 +69,8 @@ class MakeDonar : AppCompatActivity() {
                      "city" to city,
                      "bloodGroup" to bloodGroup,
                      "age" to age,
-                     "mobilenumber" to mobilenumber,
-                     "status" to "active"
+                     "mobilenumber" to mobilenumber
+
                  )
 
                  // val userId = FirebaseAuth.getInstance().currentUser!!.uid
@@ -108,16 +107,43 @@ class MakeDonar : AppCompatActivity() {
         val adapter= ArrayAdapter(this,R.layout.list_item_city,list)
         binding.etCity.setAdapter(adapter)
 
+        //            ************************************************************************************
+        // min width of dropdownlist
+        val dynamicDimensions2: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 600, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth2 = dynamicDimensions2["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.etCity.dropDownWidth = minWidth2
+        //       ****************************************************************************************
+
         //*******************************************************************************************************************
 
         // Blood type works
 
         // Bloodgroup dropdownlist works
 
-        val m= listOf(" (A+)", " (A-)", "(B+) ","(B-) "," (AB+)", "(AB-) "," (O+) ","(O-)")
+        val m= listOf("A+", "A-", "B+","B-","AB+", "AB-","O+","O-")
 
         val Adapter=ArrayAdapter(this,R.layout.list_item_bloodtype,m)
         binding.etBloodGroup.setAdapter(Adapter)
+        //  ************************************************************************************
+        // min width of dropdownlist
+        val dynamicDimensions: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 400, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth = dynamicDimensions["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.etBloodGroup.dropDownWidth = minWidth
+        //       ****************************************************************************************
 //*****************************************************************************************************************************
 
 

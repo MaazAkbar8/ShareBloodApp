@@ -10,12 +10,15 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shareblood.DataModel.AddEmmbulncDataModel
-import com.example.shareblood.DataModel.DataModelDonorList
 import com.example.shareblood.R
 
-class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<AddEmmbulncDataModel>): RecyclerView.Adapter<AddEmbulnceAdapter.MyViewHolder>() {
+class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<AddEmmbulncDataModel>,private var isNotActiveSelected: Boolean,private val currentUserId: String
+): RecyclerView.Adapter<AddEmbulnceAdapter.MyViewHolder>() {
+
+    private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
 
 
 
@@ -26,6 +29,7 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
         var RegNo: TextView = itemView.findViewById(R.id.tvRegNo)
         var phoneicon2: ImageView = itemView.findViewById(R.id.call_btn2)
         var whatsapp: ImageView = itemView.findViewById(R.id.whatsp_btn)
+        var Cardview:CardView=itemView.findViewById(R.id.ambulance_Cardv)
 
         //*************************************************************************************************************************************
         //bind  datamodel
@@ -101,6 +105,7 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
 
 //*************************************************************************************************************************************
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddEmbulnceAdapter.MyViewHolder {
+    sharedPreferencesHelper = SharedPreferencesHelper(parent.context)
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.ambulance_list_item, parent, false)
         return MyViewHolder(view)
@@ -123,7 +128,11 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
         holder.bind2(item)
        // holder.bind2(item)
         //  holder.mobilenumber.append("${item.mobilenumber}")
-
+        if (isNotActiveSelected && item.userId1 == currentUserId) {
+            holder.Cardview.visibility = View.GONE
+        } else {
+            holder.Cardview.visibility = View.VISIBLE
+        }
 
     }
 
@@ -140,6 +149,17 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
         return userslist2.size
     }
 
+    fun updateVisibility(isNotActiveSelected : Boolean) {
+        this.isNotActiveSelected = isNotActiveSelected
+        notifyDataSetChanged()
+        val currentUserPosition = userslist2.indexOfFirst { it.userId1 == currentUserId }
+        if (currentUserPosition != -1) {
+            notifyItemChanged(currentUserPosition)
+
+        }
+
+
+    }
 
 
 }

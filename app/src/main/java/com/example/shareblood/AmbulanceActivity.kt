@@ -1,26 +1,27 @@
 package com.example.shareblood
 
-import android.content.ClipData
 import android.content.Context
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.opengl.Visibility
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.View
 import android.view.View.VISIBLE
+import android.widget.ArrayAdapter
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.bumptech.glide.request.target.CustomTarget
-import com.bumptech.glide.request.transition.Transition
 import com.example.shareblood.Adapters.AddEmbulnceAdapter
-import com.example.shareblood.Adapters.MAkeDonarAdapter
+import com.example.shareblood.Adapters.SharedPreferencesHelper
 import com.example.shareblood.DataModel.AddEmmbulncDataModel
-import com.example.shareblood.DataModel.DataModelDonorList
 import com.example.shareblood.databinding.ActivityAmbulanceBinding
-import com.google.firebase.database.*
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.DataSnapshot
+import com.google.firebase.database.DatabaseError
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ValueEventListener
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -32,6 +33,9 @@ class AmbulanceActivity : AppCompatActivity() {
     private lateinit var adapter2: AddEmbulnceAdapter
     private var db2 = Firebase.firestore
     private lateinit var database: DatabaseReference
+    private lateinit var sharedPreferencesHelper: SharedPreferencesHelper
+    private var isNotActiveSelected :Boolean=false
+    private lateinit var currentUser: AddEmmbulncDataModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding= ActivityAmbulanceBinding.inflate(layoutInflater)
@@ -50,15 +54,61 @@ class AmbulanceActivity : AppCompatActivity() {
         database = FirebaseDatabase.getInstance().reference.child("userslist2")
       binding.Rcv.setHasFixedSize(true)
         List2 = ArrayList()
-        adapter2 = AddEmbulnceAdapter(this,List2)
+        val currentUserId: String = getCurrentUserId()
+        adapter2 = AddEmbulnceAdapter(this,List2,isNotActiveSelected,currentUserId)
         binding.Rcv .adapter = adapter2
 
+        currentUser = AddEmmbulncDataModel()
 
+
+        if (List2.isNotEmpty()) {
+            currentUser = List2[0]
+        }
+//********************************************************************************************************************************
+
+        //************************************************************************************************************************
+        //  Active and notActive radiobutton  and its works
+        sharedPreferencesHelper = SharedPreferencesHelper(this)
+        // Set the checked state based on the saved option
+        when (sharedPreferencesHelper.getSelectedOption()) {
+            "Active" -> binding.Radiogroup2.check(R.id.Active2)
+            "NotActive" -> binding.Radiogroup2.check(R.id.NotActive2)
+
+        }
+
+        binding.Radiogroup2.setOnCheckedChangeListener { _, checkedId ->
+            when (checkedId) {
+                R.id.Active2 -> {
+
+                    sharedPreferencesHelper.saveSelectedOption("Active")
+                    binding.Radiogroup2.visibility= View.GONE
+                    updateAdapter()
+                }
+
+                R.id.NotActive2 -> {
+
+                    sharedPreferencesHelper.saveSelectedOption("NotActive")
+                    binding.Radiogroup2.visibility= View.GONE
+                    updateAdapter()
+                }
+            }
+        }
+        updateAdapter()//     this calling through if im closed and reopen the app to selected option deside my cardview
+        //   profileActivity cliked the active and notActive button work
+        // Check if the flag is present in the intent
+        if (intent.getBooleanExtra("SHOW_RADIO_GROUP", false)) {
+            // Set the visibility of the RadioGroup to visible
+            binding.Radiogroup2 .visibility = VISIBLE
+        }else{
+            binding.Radiogroup2 .visibility = View.GONE
+        }
+
+//*********************************************************************************************************************************
         // Get data from database in display Recyclerview
 
-        db2.collection("Ambulancess").get().addOnSuccessListener {
-            if (!it.isEmpty) {
-                for (data in it.documents) {
+        db2.collection("Ambulancess").get().addOnSuccessListener {querySnapshot ->
+            if (!querySnapshot.isEmpty) {
+                for (data in querySnapshot.documents) {
                     val ambulance: AddEmmbulncDataModel? =
                         data.toObject(AddEmmbulncDataModel::class.java)
                     if (ambulance != null) {
@@ -66,40 +116,80 @@ class AmbulanceActivity : AppCompatActivity() {
                     }
 
                     // thers adapter class
-                    binding.Rcv.adapter = AddEmbulnceAdapter(this,List2)
+                   // binding.Rcv.adapter = AddEmbulnceAdapter(this,List2,isNotActiveSelected,)
                 }
+                adapter2.notifyDataSetChanged()
             }
-        }.addOnFailureListener {
+        }
+            .addOnFailureListener {
             Toast.makeText(this, it.toString(), Toast.LENGTH_SHORT).show()
         }
 
-             // search edittext if a user search value in edittext to display all related data in recyclerview
 
 
-        // Edittext work
+
+//******************************************************************************************************************************************
+        // search edittext if a user search value in edittext to display all related data in recyclerview
+                     // city search work
         binding.citysearch .addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                filterItems(s.toString())
+                val cityQuery  = s.toString()
+                val hospitalQuery = binding.hospitalSearch .text.toString()
+                filterItems(/*s.toString()*/hospitalQuery,cityQuery)
 
             }
         })
+        val list = listOf(
+            "Timergara",
+            "Balambat",
+            "Lal_Qilla",
+            "Jandol",
+            "Adenzai",
+            "Samar Bagh",
+            "Chakdara",
+            "Munda",
+            "Maidan",
+            "Talash"
+        )
 
+        val adapter = ArrayAdapter(this, R.layout.list_item_city, list)
+        binding.citysearch.setAdapter(adapter)
 
-        // bloodtext work
-        binding.bloodtypesearch .addTextChangedListener(object : TextWatcher {
+//*******************************************************************************************************************************************
+        // hospital sesarch work
+        binding.hospitalSearch .addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
 
             override fun afterTextChanged(s: Editable?) {
-                filterItems(s.toString())
+                val hospitalQuery  = s.toString()
+                val cityQuery = binding.citysearch .text.toString()
+                filterItems(/*s.toString()*/hospitalQuery,cityQuery)
 
             }
         })
+
+        val list2= listOf(
+            "Tahsel headquarter hospital",
+            "DHQ hospital",
+            "shifa hospital",
+            " City Hospital",
+            " Dr. Shafi Hospital",
+            " Amin Surgical Hospital",
+            " Life-Saving Children Hospital",
+            "Abeer saeed hospital",
+            "seena medical hospital",
+            "RHC hospital"
+        )
+        val adapter2 = ArrayAdapter(this, R.layout.list_item_hospital, list2)
+        binding.hospitalSearch .setAdapter(adapter2)
+
+
 
         // Fetch data from Firebase and update RecyclerView
         fetchItemsFromFirebase()
@@ -131,8 +221,18 @@ class AmbulanceActivity : AppCompatActivity() {
                      startActivity(s)
                  }
     }
-
-
+//*****************************************************************************************************************************
+            // Active not active  works function
+    private fun updateAdapter() {
+        val isNotActiveSelected = sharedPreferencesHelper.getSelectedOption() == "NotActive"
+        adapter2.updateVisibility(isNotActiveSelected)
+    }
+//********************************************************************************************************************************
+                //if current user id controled this functon
+    private fun getCurrentUserId(): String {
+        val currentUser = FirebaseAuth.getInstance().currentUser
+        return currentUser?.uid ?: ""
+    }
     // *************************************************************************************************************************
     private fun fetchItemsFromFirebase() {
         database.addListenerForSingleValueEvent(object : ValueEventListener {
@@ -140,13 +240,15 @@ class AmbulanceActivity : AppCompatActivity() {
                 if (snapshot.exists()) {
                     List2.clear()
                     for (itemSnapshot in snapshot.children) {
-                        val item = itemSnapshot.getValue(ClipData.Item::class.java)
+                        val item = itemSnapshot.getValue(AddEmmbulncDataModel::class.java)
                         item?.let {
                             // list.add datamodelDonarlist
-                            List2.addAll( listOf(AddEmmbulncDataModel()))
+                            //List2.addAll( listOf(AddEmmbulncDataModel()))
+                            List2.add(AddEmmbulncDataModel())
                         }
+                        adapter2.notifyDataSetChanged()
                     }
-                    adapter2.notifyDataSetChanged()
+
                 }
             }
 
@@ -155,21 +257,47 @@ class AmbulanceActivity : AppCompatActivity() {
             }
         })
     }
-    //******************************************************************************
+    //*************************************************************************************************************************************
 
     // this work is suposee user put name or city or bloodgroup or age is display these related all data in recyclerview
-    private fun filterItems(query: String) {
+    private fun filterItems(queryHospital: String, queryCity: String) {
         val filteredItems = List2.filter {
-            it.city!!.contains(query, ignoreCase = true) ||
-                    it.hospital!!.contains(query, ignoreCase = true) ||
-                    (it.RegNo!!.contains(query, ignoreCase = true))
+            val isMatchinghospital = it.hospital!!.contains(queryHospital, ignoreCase = true)
+            val isMatchingCity = it.city!!.equals(queryCity, ignoreCase = true)
+
+
+            // Include only items that match the search query and don't match the current user when "Not Active" is selected
+            isMatchingCity && isMatchinghospital
 
         }
-        adapter2 = AddEmbulnceAdapter(this,filteredItems)
 
-       // binding.include1.Rcv1.adapter = adapter2
+
+        val currentUserId: String =  getCurrentUserId()
+        //          if user cheked option NotActive  then search this current user  cardview = hide
+        val isNotActiveSelected = sharedPreferencesHelper.getSelectedOption() == "NotActive"
+        // var isNotActiveSelected = false // Default state Active and notACTVIE CHEKED
+
+        // Filter out the current user's card view if "Not Active" is selected
+        val filteredList = if (isNotActiveSelected) {
+            filteredItems.filterNot { it.userId1 == currentUserId }
+        } else {
+            filteredItems
+        }
+
+        if (filteredList.isEmpty()) {
+            // Display an empty RecyclerView
+            adapter2 = AddEmbulnceAdapter(this, ArrayList(), isNotActiveSelected, currentUserId)
+        } else {
+            adapter2 = AddEmbulnceAdapter(this, filteredList, isNotActiveSelected, currentUserId)
+        }
+
+        binding.Rcv.adapter = adapter2
+
+//**************************************************************************************************************************************
 
     }
+
+
 
 
 
