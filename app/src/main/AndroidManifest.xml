@@ -2,13 +2,15 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-
-    <uses-permission android:name="android.permission.CALL_PHONE"
+    <uses-permission
+        android:name="android.permission.CALL_PHONE"
         tools:ignore="PermissionImpliesUnsupportedChromeOsHardware" />
+
     <uses-feature
         android:name="android.hardware.telephony"
         android:required="false" />
-    <uses-permission android:name="android.permission.SEND_SMS"/>
+
+    <uses-permission android:name="android.permission.SEND_SMS" />
 
     <application
         android:allowBackup="true"
@@ -20,12 +22,14 @@
         android:theme="@style/Theme.ShareBlood"
         tools:targetApi="31">
         <activity
+            android:name=".profileActivity"
+            android:exported="false" />
+        <activity
             android:name=".makeAmbulanceMainActivity2"
             android:exported="false" />
         <activity
             android:name=".AmbulanceActivity"
             android:exported="false" />
-
         <activity
             android:name=".MakeDonar"
             android:exported="false" />
@@ -34,10 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".LoginScreen"
-            android:exported="false" />
-        <!-- whatsap-->
-
-
+            android:exported="false" /> <!-- whatsap -->
         <activity
             android:name=".splashscrren"
             android:exported="true">

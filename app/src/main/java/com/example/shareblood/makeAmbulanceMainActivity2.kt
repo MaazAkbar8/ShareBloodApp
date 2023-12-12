@@ -46,22 +46,25 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
                 binding.etRegisteration.setError("field not be empty")
 
             } else {
+                val userId1 = FirebaseAuth.getInstance().currentUser?.uid
+                if (userId1 != null) {
 
-                // user data
-                val map = hashMapOf(
-                    "number" to number,
-                    "city" to city,
-                    "hospital" to hospital,
-                    "RegNo" to RegNo
-                )
-              //  val unique = FirebaseAuth.getInstance().currentUser!!.uid // userId
-                // collection ="user"   document =" userid db default create"   set= userdata
-                //                           save data in databse
+                    // user data
+                    val map = hashMapOf(
+                        "userId1" to userId1,
+                        "number" to number,
+                        "city" to city,
+                        "hospital" to hospital,
+                        "RegNo" to RegNo
+                    )
+                    //  val unique = FirebaseAuth.getInstance().currentUser!!.uid // userId
+                    // collection ="user"   document =" userid db default create"   set= userdata
+                    //                           save data in databse
 
 
-                 //   db.collection("Ambulancess").document(unique).set(usermap)
-                        db.collection("Ambulancess").add(map)
-                        .addOnSuccessListener {documentReference->
+                    //   db.collection("Ambulancess").document(unique).set(usermap)
+                    db.collection("Ambulancess").add(map)
+                        .addOnSuccessListener { documentReference ->
                             Toast.makeText(this, "successfully Saved", Toast.LENGTH_SHORT).show()
                             // this work is if user click button to these code through all edittext is empty or clear
                             binding.etNumber.text?.clear()
@@ -69,10 +72,10 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
                             binding.etHospital.text?.clear()
                             binding.etRegisteration.text?.clear()
                         }
-                        .addOnFailureListener {e->
+                        .addOnFailureListener { e ->
                             Toast.makeText(this, "Oh Failed $e", Toast.LENGTH_SHORT).show()
                         }
-
+                }
             }
         }
         //********************************************************************************************************************

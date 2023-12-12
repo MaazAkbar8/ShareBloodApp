@@ -9,38 +9,106 @@
 
 
     <LinearLayout
-        android:id="@+id/lv"
-        android:layout_width="367dp"
-        android:layout_height="wrap_content"
+        android:id="@+id/lvsearch"
+        android:layout_width="410dp"
+        android:layout_height="70dp"
         android:layout_below="@+id/Toolbar"
-        android:layout_centerHorizontal="false"
-        android:layout_marginStart="35sp"
-        android:orientation="vertical"
+
+
+        android:orientation="horizontal"
         android:visibility="gone">
 
 
+        <!-- bloddtypeSearch-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="365dp"
-            android:layout_height="match_parent">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etsearch"
-                android:layout_width="303dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="51dp"
-                android:layout_marginEnd="20dp"
-                android:layout_marginBottom="10sp"
-                android:background="@drawable/searchview_bg"
-                android:drawablePadding="8dp"
-                android:hint=" search...."
+            android:layout_marginTop="10dp"
+            android:hint="BloodType">
 
-                android:padding="10dp"
-                android:paddingStart="32sp"
+            <AutoCompleteTextView
+                android:id="@+id/bloodtypesearch"
+                android:layout_width="170dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/view_bg_shape"
+                android:drawableStart="@drawable/blood_type_svgrepo_com"
+                android:drawablePadding="5dp"
+
+                android:inputType="none"
+                android:padding="5dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textSize="15sp" />
+
         </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- citySearch-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="172dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="city">
+
+            <AutoCompleteTextView
+                android:id="@+id/citysearch"
+                android:layout_width="170dp"
+
+                android:layout_height="45dp"
+
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/view_bg_shape"
+                android:drawableStart="@drawable/location_svgrepo_com"
+                android:drawablePadding="5dp"
+                android:inputType="none"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/RG_LLV"
+        android:layout_width="match_parent"
+        android:layout_height="32dp"
+        android:layout_below="@id/lvsearch"
+        android:orientation="vertical">
+
+        <RadioGroup
+            android:id="@+id/Radiogroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/Active"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="Active"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+            <RadioButton
+                android:id="@+id/NotActive"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="60dp"
+                android:text="NotActive"
+                android:textSize="17dp"
+                android:textStyle="bold" />
+
+
+        </RadioGroup>
+
 
     </LinearLayout>
 
@@ -54,26 +122,25 @@
         android:layout_marginStart="0dp"
         android:layout_marginTop="0dp"
         android:background="#A53737"
+
         app:menu="@menu/app_bar_menu"
         app:title="Shareblood"
+
         app:titleTextColor="@color/black" />
 
+    <!-- Include the RecyclerView layout -->
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Rcv1"
-        android:layout_width="376dp"
-        android:layout_height="776dp"
-        android:layout_above="@+id/tvAds"
-        android:layout_below="@id/lv"
+        android:id="@+id/Rcv2"
+        android:layout_width="match_parent"
+        android:layout_height="590dp"
+        android:layout_below="@id/RG_LLV"
+        android:layout_marginTop="2dp" />
 
-        android:layout_centerInParent="true"
-        android:layout_marginStart="12sp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="12sp"
-        android:layout_marginBottom="-1dp" />
+
 
     <TextView
         android:id="@+id/tvAds"
-        android:layout_width="354dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
@@ -82,7 +149,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/ads_bg_shape"
         android:padding="16dp"
@@ -96,13 +163,11 @@
         android:id="@+id/Add_Donar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
-
-
-        android:layout_marginEnd="-11dp"
-        android:layout_marginBottom="-11dp"
-        android:drawableStart="@drawable/add_circle_svgrepo_com" />
+        android:layout_marginStart="-4dp"
+        android:layout_marginBottom="49dp"
+        android:drawableStart="@drawable/add_circle_svgrepo_com__1_" />
 
 
 </RelativeLayout>

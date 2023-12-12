@@ -58,38 +58,43 @@ class MakeDonar : AppCompatActivity() {
              binding.etContact.setError("field not be empty")
 
          }else {
+             // Get the current user ID
+             val userId = FirebaseAuth.getInstance().currentUser?.uid
+             if (userId != null) {
 
 
-             // user data
-             val usermap = hashMapOf(
-                 "name" to name,
-                 "city" to city,
-                 "bloodGroup" to bloodGroup,
-                 "age" to age,
-                 "mobilenumber" to mobilenumber
-             )
+                 // user data
+                 val usermap = hashMapOf(
+                     "userId" to userId,
+                     "name" to name,
+                     "city" to city,
+                     "bloodGroup" to bloodGroup,
+                     "age" to age,
+                     "mobilenumber" to mobilenumber,
+                     "status" to "active"
+                 )
 
-            // val userId = FirebaseAuth.getInstance().currentUser!!.uid
-             // collection ="user"   document =" userid db default create"   set= userdata
-             //                  (save data in databse)
+                 // val userId = FirebaseAuth.getInstance().currentUser!!.uid
+                 // collection ="user"   document =" userid db default create"   set= userdata
+                 //                  (save data in databse)
 
-            // db.collection("user").document(userId).set(usermap)
-                     db.collection("user").add(usermap)
-                 .addOnSuccessListener {  documentReference->
-                     Toast.makeText(this, "successfully Saved", Toast.LENGTH_SHORT).show()
-                     // this work is if user click button to these code through all edittext is empty or clear
-                     binding.etName.text?.clear()
-                     binding.etCity.text.clear()
-                     binding.etBloodGroup.text.clear()
-                     binding.etAge.text?.clear()
-                     binding.etContact.text?.clear()
-                 }
-                 .addOnFailureListener { e->
-                     Toast.makeText(this, "Oh Failed $e", Toast.LENGTH_SHORT).show()
-                 }
+                 // db.collection("user").document(userId).set(usermap)
+                 db.collection("user").add(usermap)
+                     .addOnSuccessListener { documentReference ->
+                         Toast.makeText(this, "successfully Saved", Toast.LENGTH_SHORT).show()
+                         // this work is if user click button to these code through all edittext is empty or clear
+                         binding.etName.text?.clear()
+                         binding.etCity.text.clear()
+                         binding.etBloodGroup.text.clear()
+                         binding.etAge.text?.clear()
+                         binding.etContact.text?.clear()
+                     }
+                     .addOnFailureListener { e ->
+                         Toast.makeText(this, "Oh Failed $e", Toast.LENGTH_SHORT).show()
+                     }
+             }
+
          }
-
-
      }
 
 

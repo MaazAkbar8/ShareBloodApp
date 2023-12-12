@@ -1,7 +1,9 @@
 package com.example.shareblood
 
 import android.content.ClipData
+import android.content.Context
 import android.content.Intent
+import android.graphics.drawable.Drawable
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -10,6 +12,9 @@ import android.text.TextWatcher
 import android.view.View.VISIBLE
 import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
+import com.bumptech.glide.request.target.CustomTarget
+import com.bumptech.glide.request.transition.Transition
 import com.example.shareblood.Adapters.AddEmbulnceAdapter
 import com.example.shareblood.Adapters.MAkeDonarAdapter
 import com.example.shareblood.DataModel.AddEmmbulncDataModel
@@ -41,12 +46,12 @@ class AmbulanceActivity : AppCompatActivity() {
         //intialization
 
         db2 = FirebaseFirestore.getInstance()
-        binding.Rcv2.layoutManager = LinearLayoutManager(this)
+        binding.Rcv.layoutManager = LinearLayoutManager(this)
         database = FirebaseDatabase.getInstance().reference.child("userslist2")
-        binding.Rcv2.setHasFixedSize(true)
+      binding.Rcv.setHasFixedSize(true)
         List2 = ArrayList()
         adapter2 = AddEmbulnceAdapter(this,List2)
-        binding.Rcv2.adapter = adapter2
+        binding.Rcv .adapter = adapter2
 
 
         // Get data from database in display Recyclerview
@@ -61,7 +66,7 @@ class AmbulanceActivity : AppCompatActivity() {
                     }
 
                     // thers adapter class
-                    binding.Rcv2.adapter = AddEmbulnceAdapter(this,List2)
+                    binding.Rcv.adapter = AddEmbulnceAdapter(this,List2)
                 }
             }
         }.addOnFailureListener {
@@ -72,7 +77,7 @@ class AmbulanceActivity : AppCompatActivity() {
 
 
         // Edittext work
-        binding.etsearch2.addTextChangedListener(object : TextWatcher {
+        binding.citysearch .addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
@@ -84,6 +89,18 @@ class AmbulanceActivity : AppCompatActivity() {
         })
 
 
+        // bloodtext work
+        binding.bloodtypesearch .addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
+
+            override fun afterTextChanged(s: Editable?) {
+                filterItems(s.toString())
+
+            }
+        })
+
         // Fetch data from Firebase and update RecyclerView
         fetchItemsFromFirebase()
 
@@ -92,11 +109,28 @@ class AmbulanceActivity : AppCompatActivity() {
                               // search_icon clicklistener
 
                      binding.searchIcon.setOnClickListener{
-                         binding.lv2.visibility=VISIBLE
+                         binding.lvsearch .visibility=VISIBLE
                      }
         //************************************************************************************************************
+                                 //  clicked the profile icon  eventhandling
+                   // Retrieve the user image URL from SharedPreferences
+        val sharedPreferences = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val userImageUrl = sharedPreferences.getString("userImageUrl", null)
 
-    }//oncretae end
+        // Load and display the image using Glide
+        if (!userImageUrl.isNullOrBlank()) {
+            Glide.with(this)
+                .load(userImageUrl)
+                .circleCrop()
+                .into(binding.profileImage1) // Assuming profileImage1 is the ImageView in MakeAmbulanceActivity
+        }
+
+
+                 binding.profileImage1.setOnClickListener {
+                     val s=Intent(this,profileActivity::class.java)
+                     startActivity(s)
+                 }
+    }
 
 
     // *************************************************************************************************************************
@@ -133,7 +167,7 @@ class AmbulanceActivity : AppCompatActivity() {
         }
         adapter2 = AddEmbulnceAdapter(this,filteredItems)
 
-        binding.Rcv2.adapter = adapter2
+       // binding.include1.Rcv1.adapter = adapter2
 
     }
 

@@ -18,18 +18,21 @@ import com.example.shareblood.R
 class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<AddEmmbulncDataModel>): RecyclerView.Adapter<AddEmbulnceAdapter.MyViewHolder>() {
 
 
-   inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+
+    inner class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         val city: TextView = itemView.findViewById(R.id.tvcity)
         val hospital: TextView = itemView.findViewById(R.id.tvhospital)
         var RegNo: TextView = itemView.findViewById(R.id.tvRegNo)
         var phoneicon2: ImageView = itemView.findViewById(R.id.call_btn2)
-       var whatsapp:ImageView=itemView.findViewById(R.id.whatsp_btn)
+        var whatsapp: ImageView = itemView.findViewById(R.id.whatsp_btn)
 
-//*************************************************************************************************************************************
+        //*************************************************************************************************************************************
         //bind  datamodel
         @SuppressLint("QueryPermissionsNeeded")
-        fun bind(ambulance: AddEmmbulncDataModel) {
+        fun bind2(ambulance: AddEmmbulncDataModel) {
+
+
 
             // phoneicon Onclicklistener
             phoneicon2.setOnClickListener {
@@ -62,39 +65,40 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
                     }
                 }
             }
+            whatsapp.setOnClickListener {
+                val phone2 = ambulance.number // Replace with the desired phone number
 
+
+                /* val i = Intent(Intent.ACTION_SENDTO)
+         i.data = Uri.parse("smsto:${phone2}")
+         i.putExtra("sms_body", "Hello, let's chat on WhatsApp!")
+         i.setPackage("com.whatsapp")
+
+         if (i.resolveActivity(context.packageManager) != null) {
+             context. startActivity( i)
+         } else {
+             Toast.makeText(context, "whatsp is not available", Toast.LENGTH_SHORT).show()
+         }*/
+                if (phone2 != null) {
+                    whatsapp(phone2)
+                }
+            }
         }
-       //**************************************************************************************************************************
-                  //whatsapp btn Onclckelistener
-
-             fun bind2(ambulance2:AddEmmbulncDataModel){
-
-                 whatsapp.setOnClickListener {
-                     val phone2 = ambulance2.number // Replace with the desired phone number
+    }
+        fun whatsapp(phonenumber2: String) {
+            val uri = Uri.parse("https://api.whatsapp.com/send?phone=$phonenumber2")
+            val intent = Intent(Intent.ACTION_VIEW, uri)
+            context.startActivity(intent)
 
 
-                    /* val i = Intent(Intent.ACTION_SENDTO)
-                     i.data = Uri.parse("smsto:${phone2}")
-                     i.putExtra("sms_body", "Hello, let's chat on WhatsApp!")
-                     i.setPackage("com.whatsapp")
+    }
+    //**************************************************************************************************************************
+    //whatsapp btn Onclckelistener
 
-                     if (i.resolveActivity(context.packageManager) != null) {
-                         context. startActivity( i)
-                     } else {
-                         Toast.makeText(context, "whatsp is not available", Toast.LENGTH_SHORT).show()
-                     }*/
-                     if (phone2 != null) {
-                         whatsapp(phone2)
-                     }
-                 }
-                 }
-       fun whatsapp(phonenumber2: String){
-           val uri = Uri.parse("https://api.whatsapp.com/send?phone=$phonenumber2")
-           val intent = Intent(Intent.ACTION_VIEW, uri)
-           context.startActivity(intent)
-       }
 
-             }
+
+
+
 //*************************************************************************************************************************************
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AddEmbulnceAdapter.MyViewHolder {
         val view = LayoutInflater.from(parent.context)
@@ -116,8 +120,8 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
         holder.hospital.text = item.hospital
         //  holder.RegNo.append("${item.RegNo}")
         holder.RegNo.text = item.RegNo
-        holder.bind(item)
         holder.bind2(item)
+       // holder.bind2(item)
         //  holder.mobilenumber.append("${item.mobilenumber}")
 
 
@@ -135,6 +139,8 @@ class AddEmbulnceAdapter (  val context: Context,private val userslist2:List<Add
     override fun getItemCount(): Int {
         return userslist2.size
     }
+
+
 
 }
 //********************************************************************************************************************************

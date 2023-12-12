@@ -5,4 +5,5 @@
     <string name="airport_shuttle">airport_shuttle</string>
     <string name="embulance">embulance</string>
     <string name="searche">search</string>
+    <string name="active_not_active">Active/NotActive</string>
 </resources>

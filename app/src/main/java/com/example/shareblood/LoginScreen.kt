@@ -2,6 +2,7 @@ package com.example.shareblood
 
 import android.annotation.SuppressLint
 import android.content.Intent
+import android.content.Context
 import android.graphics.drawable.ColorDrawable
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -56,9 +57,14 @@ class LoginScreen : AppCompatActivity() {
               if (email.isNotEmpty() && password.isNotEmpty()) {
                   auth.signInWithEmailAndPassword(email, password).addOnCompleteListener {
                       if (it.isSuccessful) {
+                          val sharedPrefs = getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+                          val editor = sharedPrefs.edit()
+                          editor.putBoolean("isRegistered", true) // Replace with your actual data
+                          editor.apply()
                           Toast.makeText(this, "Login successfully", Toast.LENGTH_SHORT).show()
                           val i = Intent(this, MainActivity::class.java)
                           startActivity(i)
+                          finish()
 
                       } else {
                           Toast.makeText(this, " Oh!sorry: please correct your Email or pass", Toast.LENGTH_SHORT).show()

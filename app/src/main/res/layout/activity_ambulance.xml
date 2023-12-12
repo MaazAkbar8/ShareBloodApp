@@ -10,40 +10,77 @@
 
 
     <LinearLayout
-        android:id="@+id/lv2"
-        android:orientation="vertical"
-        android:layout_centerHorizontal="false"
+        android:id="@+id/lvsearch"
+        android:layout_width="410dp"
+        android:layout_height="77dp"
         android:layout_below="@+id/title"
-        android:layout_marginStart="35dp"
-        android:layout_width="356dp"
+        android:layout_marginStart="20dp"
+
+
+        android:orientation="horizontal"
         android:visibility="gone"
-        android:layout_height="wrap_content"
         >
 
 
+        <!-- citySearch-->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/search"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="365dp"
-            android:layout_height="match_parent">
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="207dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:hint="city">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/etsearch2"
-                android:layout_width="303dp"
-                android:layout_height="43dp"
-                android:layout_marginStart="51dp"
-                android:layout_marginBottom="10sp"
-                android:layout_marginEnd="20dp"
-                android:background="@drawable/searchview_bg"
-                android:drawablePadding="8dp"
-                android:hint=" search...."
-                android:padding="10dp"
-                android:paddingStart="32sp"
+            <AutoCompleteTextView
+                android:id="@+id/citysearch"
+                android:layout_width="186dp"
+
+                android:layout_height="60dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/view_bg_shape"
+                android:drawableStart="@drawable/location_svgrepo_com"
+                android:drawablePadding="5dp"
+                android:inputType="none"
+                android:padding="5dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/black" />
+                android:textSize="15sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <!-- bloddtypeSearch-->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="169dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+
+
+            android:hint="BloodType">
+
+            <AutoCompleteTextView
+                android:id="@+id/bloodtypesearch"
+                android:layout_width="150dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+
+                android:background="@drawable/view_bg_shape"
+                android:drawableStart="@drawable/blood_type_svgrepo_com"
+                android:drawablePadding="5dp"
+
+                android:inputType="none"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="15sp" />
+
         </com.google.android.material.textfield.TextInputLayout>
 
     </LinearLayout>
+
+
 
 
 <TextView
@@ -58,6 +95,19 @@
     android:layout_marginTop="20sp"/>
 
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/profile_image1"
+        android:layout_width="35dp"
+        android:layout_height="43dp"
+        android:src="@drawable/person_svgrepo_com"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@+id/search_icon"
+         android:layout_marginStart="48dp"
+
+        android:layout_marginTop="10dp"
+       />
+
+
     <TextView
         android:id="@+id/search_icon"
         android:layout_width="63dp"
@@ -65,24 +115,27 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="14dp"
-        android:layout_marginEnd="-27dp"
+        android:layout_marginEnd="30dp"
+
         android:drawableStart="@drawable/search_plus_svgrepo_com" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/Rcv2"
+        android:id="@+id/Rcv"
         android:layout_width="376dp"
         android:layout_height="776dp"
         android:layout_above="@id/tvAds2"
-        android:layout_below="@id/lv2"
+        android:layout_below="@id/lvsearch"
         android:layout_centerInParent="true"
         android:layout_marginStart="12sp"
         android:layout_marginTop="-1dp"
         android:layout_marginEnd="12sp"
         android:layout_marginBottom="0dp" />
 
+
+
     <TextView
         android:id="@+id/tvAds2"
-        android:layout_width="354dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
         android:layout_alignParentStart="true"
@@ -91,7 +144,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginStart="0dp"
-        android:layout_marginEnd="76dp"
+        android:layout_marginEnd="0dp"
         android:layout_marginBottom="1dp"
         android:background="@drawable/ads_bg_shape"
         android:padding="16dp"
@@ -110,9 +163,9 @@
         android:layout_alignParentBottom="true"
 
 
-        android:layout_marginEnd="-11dp"
-        android:layout_marginBottom="-11dp"
-        android:drawableStart="@drawable/add_circle_svgrepo_com" />
+        android:layout_marginEnd="-2dp"
+        android:layout_marginBottom="66dp"
+        android:drawableStart="@drawable/add_circle_svgrepo_com__1_" />
 
 
 </RelativeLayout>

@@ -13,7 +13,12 @@
         android:title="search"
         android:icon="@drawable/search_plus_svgrepo_com"
         app:showAsAction="always"/>
+    <item
+        android:id="@+id/profile_icon"
+        android:title="profile_image"
+        android:actionLayout="@layout/toolbar_profile_icon"
 
+        app:showAsAction="always"/>
 
 
 
