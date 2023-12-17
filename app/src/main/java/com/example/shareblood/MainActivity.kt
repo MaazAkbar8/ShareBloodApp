@@ -268,6 +268,18 @@ class MainActivity : AppCompatActivity() {
         )
         val adapter = ArrayAdapter(this, R.layout.list_item_city, list)
         binding.citysearch.setAdapter(adapter)
+//******************************************************************************************************************8
+        // min width of dropdownlist
+        val dynamicDimensions: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 600, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth = dynamicDimensions["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.citysearch.dropDownWidth = minWidth
 
         //*************************************************************************************************************************
 
@@ -292,7 +304,19 @@ class MainActivity : AppCompatActivity() {
 
         val Adapter = ArrayAdapter(this, R.layout.list_item_bloodtype, m)
         binding.bloodtypesearch.setAdapter(Adapter)
+  //*******************************************************************************************
 
+        // min width of dropdownlist
+        val dynamicDimensions2: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 400, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth2 = dynamicDimensions2["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.bloodtypesearch.dropDownWidth = minWidth2
 
 
 //****************************************************************************************************************

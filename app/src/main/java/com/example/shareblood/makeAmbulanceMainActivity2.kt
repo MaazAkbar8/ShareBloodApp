@@ -98,7 +98,7 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
         //            ************************************************************************************
         // min width of dropdownlist
         val dynamicDimensions2: Map<String, Int> = mapOf(
-            "main_dropdown_width" to 700, // Set the desired value
+            "main_dropdown_width" to 600, // Set the desired value
             "other_dimension" to 150 // Set another dimension value
         )
 
@@ -107,7 +107,7 @@ class makeAmbulanceMainActivity2 : AppCompatActivity() {
 
 // Use the minWidth as needed
         binding.etCity.dropDownWidth = minWidth2
-        //       ****************************************************************************************
+
 
         //************************************************************************************************************************
         // hospital dropdownlist

@@ -158,6 +158,18 @@ class AmbulanceActivity : AppCompatActivity() {
 
         val adapter = ArrayAdapter(this, R.layout.list_item_city, list)
         binding.citysearch.setAdapter(adapter)
+//******************************************************************************
+        // min width of dropdownlist
+        val dynamicDimensions: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 700, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth = dynamicDimensions["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.citysearch.dropDownWidth = minWidth
 
 //*******************************************************************************************************************************************
         // hospital sesarch work
@@ -188,8 +200,18 @@ class AmbulanceActivity : AppCompatActivity() {
         )
         val adapter2 = ArrayAdapter(this, R.layout.list_item_hospital, list2)
         binding.hospitalSearch .setAdapter(adapter2)
+//********************************************************************************************************
+        // min width of dropdownlist
+        val dynamicDimensions2: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 700, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
 
+// Access a specific dimension value
+        val minWidth2 = dynamicDimensions2["main_dropdown_width"] ?: 0
 
+// Use the minWidth as needed
+        binding.hospitalSearch.dropDownWidth = minWidth2
 
         // Fetch data from Firebase and update RecyclerView
         fetchItemsFromFirebase()

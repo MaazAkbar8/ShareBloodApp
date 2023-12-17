@@ -78,6 +78,19 @@ class signupscreen : AppCompatActivity() {
         )
         val adapter = ArrayAdapter(this, R.layout.list_item_city, list)
         binding.dropdownfield.setAdapter(adapter)
+  //***********************************************************************************************************************
+
+        // min width of dropdownlist
+        val dynamicDimensions: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 600, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth = dynamicDimensions["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.dropdownfield.dropDownWidth = minWidth
 
 
         //**********************************************************************************
@@ -89,6 +102,19 @@ class signupscreen : AppCompatActivity() {
 
         val Adapter = ArrayAdapter(this, R.layout.list_item_bloodtype, m)
         binding.dropdownfieldBloodg.setAdapter(Adapter)
+   //***************************************************************************************************************
+
+        // min width of dropdownlist
+        val dynamicDimensions2: Map<String, Int> = mapOf(
+            "main_dropdown_width" to 400, // Set the desired value
+            "other_dimension" to 150 // Set another dimension value
+        )
+
+// Access a specific dimension value
+        val minWidth2 = dynamicDimensions2["main_dropdown_width"] ?: 0
+
+// Use the minWidth as needed
+        binding.dropdownfieldBloodg.dropDownWidth = minWidth2
 
         //*******************************************************************************************************
     }
