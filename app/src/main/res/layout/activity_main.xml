@@ -14,7 +14,7 @@
         android:layout_height="70dp"
         android:layout_below="@+id/Toolbar"
 
-
+          android:layout_marginStart="70dp"
         android:orientation="horizontal"
         android:visibility="gone">
 
@@ -79,6 +79,7 @@
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:layout_below="@id/lvsearch"
+        android:layout_marginStart="70dp"
         android:orientation="vertical">
 
         <RadioGroup
@@ -132,7 +133,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcv2"
         android:layout_width="match_parent"
-        android:layout_height="587dp"
+        android:layout_height="680dp"
         android:layout_below="@id/RG_LLV"
         android:layout_marginTop="2dp" />
 

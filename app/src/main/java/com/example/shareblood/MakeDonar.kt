@@ -73,11 +73,10 @@ class MakeDonar : AppCompatActivity() {
 
                  )
 
-                 // val userId = FirebaseAuth.getInstance().currentUser!!.uid
-                 // collection ="user"   document =" userid db default create"   set= userdata
+
                  //                  (save data in databse)
 
-                 // db.collection("user").document(userId).set(usermap)
+
                  db.collection("user").add(usermap)
                      .addOnSuccessListener { documentReference ->
                          Toast.makeText(this, "successfully Saved", Toast.LENGTH_SHORT).show()

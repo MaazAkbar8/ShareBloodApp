@@ -24,25 +24,6 @@ class profileActivity : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
-//****Start**************************************************************************************************
-        // these code through  if user checked active and notactive   to perform worked
-
-
-
-
-
-
-
-
-
-
-//**********************************************************************************************************
-
-
-
-
-
-
 
 //********************************************************************************************************************
 // Retrieve  Userimage URL & data  from the Realtime Database
@@ -115,11 +96,6 @@ class profileActivity : AppCompatActivity()  {
     }
 
 //**********************************************************************************************************************************
-
-
-
-
-    //*********************************************************************************************************************************
         @SuppressLint("SuspiciousIndentation")
         private fun logout() {
             FirebaseAuth.getInstance().signOut()

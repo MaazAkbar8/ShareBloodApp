@@ -15,7 +15,7 @@
         android:layout_height="70dp"
         android:layout_below="@+id/title"
 
-
+android:layout_marginStart="70dp"
 
         android:orientation="horizontal"
         android:visibility="gone">
@@ -85,7 +85,7 @@
         android:layout_width="match_parent"
         android:layout_height="32dp"
         android:layout_below="@+id/lvsearch"
-
+android:layout_marginStart="70dp"
         android:orientation="vertical"
         >
 
@@ -164,7 +164,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/Rcv"
         android:layout_width="match_parent"
-        android:layout_height="599dp"
+        android:layout_height="685dp"
         android:layout_below="@id/RG_LLV"
         android:layout_marginTop="2dp" />
 
